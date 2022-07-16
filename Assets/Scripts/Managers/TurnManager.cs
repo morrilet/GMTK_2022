@@ -53,7 +53,7 @@ public class TurnManager : Singleton<TurnManager> {
 
     public void Tick() {
         currentTickPointer = (currentTickPointer + 1) % turnOrder.Length;
-        Debug.Log($"Tick: {turnOrder[currentTickPointer]}");
+        // Debug.Log($"Tick: {turnOrder[currentTickPointer]}");
 
         StartNextAction();
 
@@ -63,5 +63,9 @@ public class TurnManager : Singleton<TurnManager> {
 
     public TICK_TYPE GetCurrentTurn() {
         return turnOrder[currentTickPointer];
+    }
+
+    public static void QueueAction(Action action) {
+        TurnManager.instance.actionQueue.Enqueue(action);
     }
 }

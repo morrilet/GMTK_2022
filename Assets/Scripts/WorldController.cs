@@ -1,6 +1,15 @@
 using UnityEngine;
+using System.Linq;
 
-public class WorldController : MonoBehaviour {
+public class WorldController : Singleton<WorldController> {
+    
+    private ITurnObject[] worldObjects;
+
+    protected override void Awake() {
+        base.Awake();
+        worldObjects = GameObject.FindObjectsOfType<MonoBehaviour>().OfType<ITurnObject>().ToArray();
+    }
+
     private void Update() {
         if (TurnManager.instance.GetCurrentTurn() == TurnManager.TICK_TYPE.WORLD && TurnManager.instance.ReadyForNextTurn()) {
             QueueActions();
@@ -8,7 +17,12 @@ public class WorldController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Queue all world object actions within the turn manager.
+    /// </summary>
     private void QueueActions() {
-        // TODO: Queue button checks, door checks, jump pad handling, etc.
+        foreach(ITurnObject worldObj in worldObjects) {
+            worldObj.QueueTurn();
+        }
     }
 }
