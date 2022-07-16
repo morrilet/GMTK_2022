@@ -4,12 +4,15 @@ using System.Collections;
 public class PlayerDie : Die {
     
     private float movementDeadzone = 0.01f;
-    private Vector3 moveDirection;
 
     protected override void Awake() {
         base.Awake();
 
         moveDirection = Vector3.zero;
+    }
+
+    public Vector3 GetMoveDirection() {
+        return moveDirection;
     }
 
     private void Update() {
@@ -20,26 +23,31 @@ public class PlayerDie : Die {
     private void TryProcessTurn() {
         // Tick if it's the players turn and we have given some input.
         if (TurnManager.instance.GetCurrentTurn() == TurnManager.TICK_TYPE.PLAYER && TurnManager.instance.ReadyForNextTurn()) {
-
             moveDirection = GetMoveDirectionFromInput();
 
             // If our desired direction is blocked, don't move that way.
             if (!isValidMoveDirection(moveDirection)) {
                 // TODO: Wiggle!
-                moveDirection = Vector3.zero;
             }
 
-            // If we still have a target direction, fire away!
-            if (moveDirection != Vector3.zero) {
-                TurnManager.instance.actionQueue.Enqueue(Move);
-                TurnManager.instance.Tick();
-            }
+            if (MovementShouldTakeTurn(moveDirection))
+                TurnManager.QueueAction(Move);
+                foreach(GolemDie golem in WorldController.instance.golems) {
+                    if (golem.IsSynced())
+                        golem.QueueMove(moveDirection);
+                }
+                TurnManager.TakeTurn();
         }
     }
 
-    private IEnumerator Move() {
-        yield return AnimateMove(moveDirection);
-        moveDirection = Vector3.zero;
+    /// <summary>
+    /// Checks whether or not the desired movement input should require us to take our turn. This is only the case when the player
+    /// die can move in the desired direction or one of the currently synced golems can move in the desired direction.
+    /// </summary>
+    /// <param name="desiredMovement"></param>
+    /// <returns></returns>
+    private bool MovementShouldTakeTurn(Vector3 desiredMovement) {
+        return isValidMoveDirection(desiredMovement) || GolemController.instance.AnySyncedGolemHasValidMove(desiredMovement);
     }
 
     private Vector3 GetMoveDirectionFromInput() {

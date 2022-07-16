@@ -14,6 +14,7 @@ public class TurnManager : Singleton<TurnManager> {
 
     public enum TICK_TYPE {
         PLAYER,
+        GOLEM,
         WORLD,
     }
 
@@ -21,6 +22,7 @@ public class TurnManager : Singleton<TurnManager> {
     // loop back to the start. Every tick moves the current turn state to the next item in the list.
     private TICK_TYPE[] turnOrder = new TICK_TYPE[] {
         TICK_TYPE.PLAYER,
+        TICK_TYPE.GOLEM,
         TICK_TYPE.WORLD
     };
     private int currentTickPointer;
@@ -67,5 +69,9 @@ public class TurnManager : Singleton<TurnManager> {
 
     public static void QueueAction(Action action) {
         TurnManager.instance.actionQueue.Enqueue(action);
+    }
+
+    public static void TakeTurn() {
+        TurnManager.instance.Tick();
     }
 }

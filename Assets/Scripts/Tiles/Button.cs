@@ -55,4 +55,6 @@ public class Button : MonoBehaviour, ITurnObject
                 TurnManager.QueueAction(triggerObj.releaseTriggerAction);
         }
     }
+
+    public TurnManager.TICK_TYPE GetTurnType() { return TurnManager.TICK_TYPE.WORLD; }
 }

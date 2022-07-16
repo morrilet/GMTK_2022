@@ -22,9 +22,19 @@ public class Die : MonoBehaviour {
     }
 
     new private BoxCollider collider;
+    protected Vector3 moveDirection;
 
     protected virtual void Awake() {
         collider = GetComponent<BoxCollider>();
+    }
+
+    /// <summary>
+    /// Move the die in the current moveDirection.
+    /// </summary>
+    /// <returns></returns>
+    protected IEnumerator Move() {
+        yield return AnimateMove(moveDirection);
+        moveDirection = Vector3.zero;
     }
 
     /// <summary>
@@ -100,6 +110,9 @@ public class Die : MonoBehaviour {
     public bool isValidMoveDirection(Vector3 direction) {
         RaycastHit lateralHit;
         RaycastHit floorHit;
+
+        if (direction == Vector3.zero)
+            return false;
 
         // Cast ahead of us to see if there's anything standing in our direction of travel.
         Physics.Raycast(transform.position, (direction.normalized * moveDistance), out lateralHit, moveDistance, obstacleMask);
