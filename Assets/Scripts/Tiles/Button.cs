@@ -5,12 +5,16 @@ using System.Collections;
 public class Button : MonoBehaviour, ITurnObject
 {
     [Space, Header("Events")]
+    public UnityEvent triggerMetaEvents;
+    public UnityEvent releaseMetaEvents;
     public GameObject[] triggerObjects;
 
     [Space, Header("Metadata")]
     public int requiredValue;
     public LayerMask triggerMask;
     public bool requireHeldDown;  // Whether the button needs to stay held down or not.
+    public bool requirePlayer;
+    public bool requireSpecificValue = true;
 
     private float triggerDistance = 0.1f;
     private bool triggered = false;
@@ -22,7 +26,12 @@ public class Button : MonoBehaviour, ITurnObject
 
         if (hit.collider) {
             Die hitDie = hit.collider.gameObject.GetComponent<Die>();
-            return hitDie.GetCurrentSide() == requiredValue;
+
+            if (requirePlayer && hitDie != WorldController.instance.player)
+                return false;
+            if (requireSpecificValue && hitDie.GetCurrentSide() != requiredValue)
+                return false;
+            return true;
         }
         return false;
     }
@@ -49,10 +58,14 @@ public class Button : MonoBehaviour, ITurnObject
         foreach(GameObject obj in triggerObjects) {
             ITriggerable triggerObj = obj.GetComponent<ITriggerable>();
 
-            if (isHeld)
+            if (isHeld) {
+                triggerMetaEvents.Invoke();
                 TurnManager.QueueAction(triggerObj.triggerAction);
-            else
+            }
+            else {
+                releaseMetaEvents.Invoke();
                 TurnManager.QueueAction(triggerObj.releaseTriggerAction);
+            }
         }
     }
 
