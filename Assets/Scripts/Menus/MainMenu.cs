@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using AK.Wwise;
 
 public class MainMenu : MonoBehaviour
 {
@@ -14,9 +15,30 @@ public class MainMenu : MonoBehaviour
     public Slider musicSlider;
     public Slider effectsSlider;
 
+    const string MUSIC_VOLUME_RTPC_KEY = "MusicVolume";
+    const string EFFECTS_VOLUME_RTPC_KEY = "EffectsVolume";
+
     private void Awake() {
         mainMenuPanel.SetActive(true);
         levelSelectPanel.SetActive(false);
+
+        LoadSettings();
+    }
+
+    private void SaveSettings() {
+        PlayerPrefs.SetFloat(MUSIC_VOLUME_RTPC_KEY, musicSlider.value);
+        PlayerPrefs.SetFloat(EFFECTS_VOLUME_RTPC_KEY, effectsSlider.value);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadSettings() {
+        if (PlayerPrefs.HasKey(MUSIC_VOLUME_RTPC_KEY)) 
+            musicSlider.value = PlayerPrefs.GetFloat(MUSIC_VOLUME_RTPC_KEY);
+        if (PlayerPrefs.HasKey(EFFECTS_VOLUME_RTPC_KEY))
+            effectsSlider.value = PlayerPrefs.GetFloat(EFFECTS_VOLUME_RTPC_KEY);
+        
+        SetMusicVolume(musicSlider.value);
+        SetEffectsVolume(effectsSlider.value);
     }
 
     public void StartGame() {
@@ -34,12 +56,12 @@ public class MainMenu : MonoBehaviour
     }
 
     public void SetMusicVolume(float volume) {
-        // TODO: Change Wwise music volume
+        AkSoundEngine.SetRTPCValue(MUSIC_VOLUME_RTPC_KEY, volume);
+        SaveSettings();
     }
 
     public void SetEffectsVolume(float volume) {
-        // TODO: Change Wwise effects volume
+        AkSoundEngine.SetRTPCValue(EFFECTS_VOLUME_RTPC_KEY, volume);
+        SaveSettings();
     }
-
-    // TODO: Volume sliders
 }
