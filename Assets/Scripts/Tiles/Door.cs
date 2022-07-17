@@ -7,12 +7,12 @@ public class Door : MonoBehaviour, ITriggerable
     public GameObject modelObject;
 
     public IEnumerator releaseTriggerAction() {
-        yield return new WaitForSeconds(1.0f);
         modelObject.SetActive(true);
+        yield return null;
     }
 
     public IEnumerator triggerAction() {
-        yield return new WaitForSeconds(1.0f);
         modelObject.SetActive(false);
+        yield return null;
     }
 }
