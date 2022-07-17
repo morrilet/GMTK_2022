@@ -23,18 +23,20 @@ public class PlayerDie : Die {
     private void TryProcessTurn() {
         // Tick if it's the players turn and we have given some input.
         if (TurnManager.instance.GetCurrentTurn() == TurnManager.TICK_TYPE.PLAYER && TurnManager.instance.ReadyForNextTurn()) {
-            moveDirection = GetMoveDirectionFromInput();
+            Vector3 desiredMoveDirection = GetMoveDirectionFromInput();
+            moveDirection = desiredMoveDirection;
 
             // If our desired direction is blocked, don't move that way.
             if (!isValidMoveDirection(moveDirection)) {
                 // TODO: Wiggle!
+                moveDirection = Vector3.zero;
             }
-
-            if (MovementShouldTakeTurn(moveDirection))
+            
+            if (MovementShouldTakeTurn(desiredMoveDirection))
                 TurnManager.QueueAction(Move);
                 foreach(GolemDie golem in WorldController.instance.golems) {
                     if (golem.IsSynced())
-                        golem.QueueMove(moveDirection);
+                        golem.QueueMove(desiredMoveDirection);
                 }
                 TurnManager.TakeTurn();
         }

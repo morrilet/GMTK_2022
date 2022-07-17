@@ -116,9 +116,12 @@ public class Die : MonoBehaviour {
 
         // Cast ahead of us to see if there's anything standing in our direction of travel.
         Physics.Raycast(transform.position, (direction.normalized * moveDistance), out lateralHit, moveDistance, obstacleMask);
+        Debug.DrawRay(transform.position, (direction.normalized * moveDistance), Color.red, 1.0f);
 
         // Cast downward from our target position to make sure there's a tile to stand on.
-        Physics.Raycast(transform.position + (direction.normalized * moveDistance), Vector3.down, out floorHit, moveDistance, floorMask);
+        Physics.Raycast(transform.position + (direction.normalized * moveDistance), Vector3.down, out floorHit, 1.0f, floorMask);
+
+        Debug.Log(lateralHit.collider);
 
         // The move is valid if we have no lateral obstacles and there is a floor tile present at the destination.
         return lateralHit.collider == null && floorHit.collider != null;
