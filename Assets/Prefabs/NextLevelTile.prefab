@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6259365524699396129}
   - component: {fileID: 6259365524699396134}
   - component: {fileID: 6259365524699396135}
-  - component: {fileID: 1574329322374485173}
+  - component: {fileID: 7099428093788574869}
   m_Layer: 9
   m_Name: NextLevelTile
   m_TagString: Untagged
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1574329322374485173
+--- !u!114 &7099428093788574869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6259365524699396133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c12710301fb9e4786119d515029282, type: 3}
+  m_Script: {fileID: 11500000, guid: 607b500fe4b04384397448e57bc5e3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triggerMetaEvents:
@@ -114,8 +114,7 @@ MonoBehaviour:
   releaseMetaEvents:
     m_PersistentCalls:
       m_Calls: []
-  triggerObjects:
-  - {fileID: 0}
+  triggerObjects: []
   requiredValue: -1
   triggerMask:
     serializedVersion: 2

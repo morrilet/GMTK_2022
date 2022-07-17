@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 70f468238882557408df90da5512163f, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1456,6 +1456,14 @@ PrefabInstance:
       propertyPath: triggerObjects.Array.data[0]
       value: 
       objectReference: {fileID: 2101067854}
+    - target: {fileID: 1574329322374485173, guid: 895b26fa41157084db804cdecde8cff3, type: 3}
+      propertyPath: triggerMetaEvents.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574329322374485173, guid: 895b26fa41157084db804cdecde8cff3, type: 3}
+      propertyPath: triggerMetaEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8243059529841881088}
     - target: {fileID: 6259365524699396132, guid: 895b26fa41157084db804cdecde8cff3, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1760,3 +1768,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+--- !u!114 &8243059529841881088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+  m_PrefabInstance: {fileID: 8243059529841881087}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3825673f7d5ba8d44a9f7e132fd36dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

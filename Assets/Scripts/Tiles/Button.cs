@@ -55,18 +55,34 @@ public class Button : MonoBehaviour, ITurnObject
     }
 
     private void Trigger(bool isHeld) {
+
+        // Trigger our objects.
         foreach(GameObject obj in triggerObjects) {
             ITriggerable triggerObj = obj.GetComponent<ITriggerable>();
 
-            if (isHeld) {
-                triggerMetaEvents.Invoke();
+            if (isHeld)
                 TurnManager.QueueAction(triggerObj.triggerAction);
-            }
-            else {
-                releaseMetaEvents.Invoke();
+            else
                 TurnManager.QueueAction(triggerObj.releaseTriggerAction);
-            }
         }
+
+        // Apply meta events and extra actions.
+        if (isHeld) {
+            triggerMetaEvents.Invoke();
+            extraTriggerActions();
+        }
+        else {
+            releaseMetaEvents.Invoke();
+            extraReleaseActions();
+        }
+    }
+
+    protected virtual void extraTriggerActions() {
+        // Implemented by children.
+    }
+
+    protected virtual void extraReleaseActions() {
+        // Implemented by children.
     }
 
     public TurnManager.TICK_TYPE GetTurnType() { return TurnManager.TICK_TYPE.WORLD; }
