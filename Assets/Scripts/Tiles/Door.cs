@@ -6,11 +6,18 @@ public class Door : MonoBehaviour, ITriggerable
 {
     public GameObject modelObject;
     public LayerMask blockingMask;
+
+    [Space]
+
+    public AK.Wwise.Event openAudio;
+    public AK.Wwise.Event closeAudio;
  
     // Close the door.
     public IEnumerator releaseTriggerAction() {
-        if (CanClose())
+        if (CanClose()) {
             modelObject.SetActive(true);
+            closeAudio.Post(this.gameObject);
+        }
         else  // We could try to be smart here and not re-queue if the door should open again, but since requeues happen before real actions we're fine. It's fine.
             WorldController.instance.RequeueActionForNextTurn(releaseTriggerAction);
         yield return null;
@@ -19,6 +26,7 @@ public class Door : MonoBehaviour, ITriggerable
     // Open the door.
     public IEnumerator triggerAction() {
         modelObject.SetActive(false);
+        openAudio.Post(this.gameObject);
         yield return null;
     }
 

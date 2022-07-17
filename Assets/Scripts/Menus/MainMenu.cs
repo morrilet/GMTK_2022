@@ -9,8 +9,9 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenuPanel;
     public GameObject levelSelectPanel;
+    public GameObject creditsPanel;
 
-    public AK.Wwise.Event audioEvent;
+    public AK.Wwise.Event soundtrackEvent;
 
     [Space]
 
@@ -21,10 +22,12 @@ public class MainMenu : MonoBehaviour
     const string EFFECTS_VOLUME_RTPC_KEY = "EffectsVolume";
 
     private void Awake() {
-        mainMenuPanel.SetActive(true);
-        levelSelectPanel.SetActive(false);
-
+        SwitchToMainMenuPanel();
         LoadSettings();
+    }
+
+    private void Start() {
+        // soundtrackEvent.Post(this.gameObject);  // Not working :(
     }
 
     private void SaveSettings() {
@@ -47,10 +50,23 @@ public class MainMenu : MonoBehaviour
         // Assuming the second scene in the build index is the first level we're all good.
         SceneManager.LoadScene(1);
     }
-
-    public void SetLevelSelectVisible(bool visible) {
-        mainMenuPanel.SetActive(!visible);
-        levelSelectPanel.SetActive(visible);
+    
+    public void SwitchToMainMenuPanel() {
+        mainMenuPanel.SetActive(true);
+        levelSelectPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+    }
+    
+    public void SwitchToLevelSelectPanel() {
+        mainMenuPanel.SetActive(false);
+        levelSelectPanel.SetActive(true);
+        creditsPanel.SetActive(false);
+    }
+    
+    public void SwitchToCreditsPanel() {
+        mainMenuPanel.SetActive(false);
+        levelSelectPanel.SetActive(false);
+        creditsPanel.SetActive(true);
     }
 
     public void Quit() {

@@ -26,6 +26,8 @@ public class WorldController : Singleton<WorldController> {
     }
 
     private void Update() {
+        Debug.Log(TurnManager.instance.ReadyForNextTurn());
+
         if (TurnManager.instance.GetCurrentTurn() == TurnManager.TICK_TYPE.WORLD && TurnManager.instance.ReadyForNextTurn()) {
             QueueActions();
             TurnManager.TakeTurn();

@@ -96,7 +96,7 @@
 						<Action Name="" ID="{F622157B-5635-42BD-9FBE-0AEF9309F4F1}" ShortID="292810118">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="wall_bounce" ID="{BE19BCB7-69A4-4868-85F0-41991FB61552}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+									<ObjectRef Name="altclack" ID="{BE19BCB7-69A4-4868-85F0-41991FB61552}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -108,6 +108,57 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Menuclick" ID="{252D89E5-3B08-4504-9AFB-D642823E1D98}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_buttonreject" ID="{39F4A905-A53B-485B-8104-4DAB0CD055B4}">
+					<ChildrenList>
+						<Action Name="" ID="{0928BCB5-BFAB-4B2D-A42D-E8CA6CF93CAE}" ShortID="423284327">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="buttonreject" ID="{7BE055E2-BB2A-4649-8015-3E443CC075A6}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Dice_to_Meet_You" ID="{2150CCF8-BC87-4AAA-B1CA-5930339B9EA6}">
+					<ChildrenList>
+						<Action Name="" ID="{109A6B6A-8D93-4D69-8F22-7DF628657D1C}" ShortID="134655834">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dice to Meet You" ID="{29A937DB-986D-415B-939C-3F91B8CEC55F}" WorkUnitID="{A93BBF2C-C688-4BB0-966E-9FB32D7819E6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_doorclose" ID="{6B87E71A-133B-4D73-A24E-FA7E1CFA43F7}">
+					<ChildrenList>
+						<Action Name="" ID="{04317436-D836-41A5-B9AF-4D207070120A}" ShortID="205343874">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="doorclose" ID="{C2284EDB-7482-4CE1-85AE-233F47506497}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_dooropen" ID="{4D4E9303-2FC0-4F87-A468-C92B6A9E5864}">
+					<ChildrenList>
+						<Action Name="" ID="{7AB72B12-DD4E-4EC8-903D-ABE39D5D4AA2}" ShortID="604440992">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="dooropen" ID="{32CF08C2-7599-41D0-92C5-2F2E226A663A}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

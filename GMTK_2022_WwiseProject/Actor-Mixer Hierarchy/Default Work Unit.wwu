@@ -4,6 +4,15 @@
 		<WorkUnit Name="Default Work Unit" ID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" PersistMode="Standalone">
 			<ChildrenList>
 				<Sound Name="sadchunk" ID="{E4DF5EC8-A678-499F-A5B2-F3B5AC5A9C40}" ShortID="826733847">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{EF93F965-DC57-4087-8224-5295B84B6669}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9A0446E1-D421-425F-8B9D-65A8085C897F}"/>
@@ -26,8 +35,29 @@
 						<ActiveSource Name="sadchunk" ID="{6EA5E8E1-B658-4C85-AB6D-D58F36E5FE19}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="wall_bounce" ID="{BE19BCB7-69A4-4868-85F0-41991FB61552}" ShortID="34284057">
+				<Sound Name="altclack" ID="{BE19BCB7-69A4-4868-85F0-41991FB61552}" ShortID="34284057">
 					<PropertyList>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>47</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-1060</Value>
+							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{D9B2BE40-26CC-484B-82BC-80E635AC5F84}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="152"/>
+											<Property Name="Min" Type="Real64" Value="-177"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-8</Value>
@@ -57,6 +87,20 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Sync" ID="{EFD49FD7-7F40-47E2-86A7-D0EC83E723A7}" ShortID="1009205754">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{883C9832-5081-4AEC-A2DE-82FCA9CCE276}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>7</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9A0446E1-D421-425F-8B9D-65A8085C897F}"/>
@@ -86,9 +130,16 @@
 								<Value>24</Value>
 							</ValueList>
 						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{5589C212-A3DE-4CAD-8947-0D95E0ACAEFE}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>3</Value>
+								<Value>5</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -115,6 +166,20 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Desync" ID="{C7636082-D9B4-4DB4-96D2-B82872DEEE87}" ShortID="583425505">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{99EE6A4B-EB89-4B48-9E81-B944A738B0F4}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9A0446E1-D421-425F-8B9D-65A8085C897F}"/>
@@ -170,6 +235,15 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Door open" ID="{5E8D7B47-0EF5-4E09-BA75-14CCFC4FE8E6}" ShortID="800121244">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{046B4FAE-8B39-4D90-B4E5-C6B8878B5FF7}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9A0446E1-D421-425F-8B9D-65A8085C897F}"/>
@@ -231,11 +305,13 @@
 							</ModifierList>
 						</Property>
 						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>49</Value>
+							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
 									<Modifier Name="" ID="{DF526264-B3F8-456F-8C04-EACC3CF8B8CD}">
 										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
 											<Property Name="Max" Type="Real64" Value="41"/>
 											<Property Name="Min" Type="Real64" Value="-44"/>
 										</PropertyList>
@@ -244,6 +320,9 @@
 							</ModifierList>
 						</Property>
 						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-230</Value>
+							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
 									<Modifier Name="" ID="{E13D904C-AE63-4DDE-971B-99303D8C9FB0}">
@@ -323,6 +402,94 @@
 					<ObjectLists/>
 					<ActiveSourceList>
 						<ActiveSource Name="Menuclick" ID="{24329904-9180-4789-AA8E-10B74F62A923}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="buttonreject" ID="{7BE055E2-BB2A-4649-8015-3E443CC075A6}" ShortID="1016111591">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>22</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{29822CFB-19EE-41E6-9D14-7333534F9A36}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9A0446E1-D421-425F-8B9D-65A8085C897F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A5AD8ED8-6B2E-43E9-8ECA-97432EE5C7D9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="buttonreject" ID="{B7BF97CE-788C-48CF-8400-18B8B959B3F3}">
+							<Language>SFX</Language>
+							<AudioFile>buttonreject.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="580436319"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="buttonreject" ID="{B7BF97CE-788C-48CF-8400-18B8B959B3F3}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="doorclose" ID="{C2284EDB-7482-4CE1-85AE-233F47506497}" ShortID="245755515">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9A0446E1-D421-425F-8B9D-65A8085C897F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A5AD8ED8-6B2E-43E9-8ECA-97432EE5C7D9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="doorclose" ID="{9174E864-18E7-42A7-B682-DD792B62D432}">
+							<Language>SFX</Language>
+							<AudioFile>doorclose.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="142808323"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="doorclose" ID="{9174E864-18E7-42A7-B682-DD792B62D432}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="dooropen" ID="{32CF08C2-7599-41D0-92C5-2F2E226A663A}" ShortID="1064258610">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9A0446E1-D421-425F-8B9D-65A8085C897F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A5AD8ED8-6B2E-43E9-8ECA-97432EE5C7D9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="dooropen" ID="{7F17323A-DD00-45BA-8C77-1B6F2D7C59AD}">
+							<Language>SFX</Language>
+							<AudioFile>dooropen.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="561354733"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="dooropen" ID="{7F17323A-DD00-45BA-8C77-1B6F2D7C59AD}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

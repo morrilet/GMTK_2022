@@ -16,16 +16,24 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="4091799443" Language="SFX" Hash="2462527457">
+		<SoundBank Id="4091799443" Language="SFX" Hash="2461854912">
 			<ObjectPath>\SoundBanks\Default Work Unit\GMTK_2022</ObjectPath>
 			<ShortName>GMTK_2022</ShortName>
 			<Path>GMTK_2022.bnk</Path>
 			<IncludedEvents>
-				<Event Id="1389500738" Name="Play_bump" ObjectPath="\Events\Default Work Unit\Play_bump" DurationType="OneShot" DurationMin="0.159375" DurationMax="0.159375">
+				<Event Id="1389500738" Name="Play_bump" ObjectPath="\Events\Default Work Unit\Play_bump" DurationType="OneShot" DurationMin="0.269277" DurationMax="0.325636">
 					<IncludedMemoryFiles>
 						<File Id="1063556422" Language="SFX">
 							<ShortName>wall_bounce.wav</ShortName>
 							<Path>SFX\wall_bounce_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1147451143" Name="Play_buttonreject" ObjectPath="\Events\Default Work Unit\Play_buttonreject" DurationType="OneShot" DurationMin="1.297302" DurationMax="1.297302">
+					<IncludedMemoryFiles>
+						<File Id="580436319" Language="SFX">
+							<ShortName>buttonreject.wav</ShortName>
+							<Path>SFX\buttonreject_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -37,7 +45,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="44748538" Name="Play_clack" ObjectPath="\Events\Default Work Unit\Play_clack" DurationType="OneShot" DurationMin="0.151703" DurationMax="0.170477">
+				<Event Id="44748538" Name="Play_clack" ObjectPath="\Events\Default Work Unit\Play_clack" DurationType="OneShot" DurationMin="0.173257" DurationMax="0.194699">
 					<IncludedMemoryFiles>
 						<File Id="667903303" Language="SFX">
 							<ShortName>Dice clack.wav</ShortName>
@@ -58,6 +66,23 @@
 						<File Id="718723063" Language="SFX">
 							<ShortName>Desync.wav</ShortName>
 							<Path>SFX\Desync_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2431542269" Name="Play_Dice_to_Meet_You" ObjectPath="\Events\Default Work Unit\Play_Dice_to_Meet_You" MaxAttenuation="0." DurationType="OneShot" DurationMin="0." DurationMax="0."/>
+				<Event Id="2721379730" Name="Play_doorclose" ObjectPath="\Events\Default Work Unit\Play_doorclose" DurationType="OneShot" DurationMin="0.249138" DurationMax="0.249138">
+					<IncludedMemoryFiles>
+						<File Id="142808323" Language="SFX">
+							<ShortName>doorclose.wav</ShortName>
+							<Path>SFX\doorclose_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3197300806" Name="Play_dooropen" ObjectPath="\Events\Default Work Unit\Play_dooropen" DurationType="OneShot" DurationMin="0.392925" DurationMax="0.392925">
+					<IncludedMemoryFiles>
+						<File Id="561354733" Language="SFX">
+							<ShortName>dooropen.wav</ShortName>
+							<Path>SFX\dooropen_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -107,6 +132,10 @@
 					<ShortName>Menuclick.wav</ShortName>
 					<Path>SFX\Menuclick_10C4C929.wem</Path>
 				</File>
+				<File Id="142808323" Language="SFX">
+					<ShortName>doorclose.wav</ShortName>
+					<Path>SFX\doorclose_10C4C929.wem</Path>
+				</File>
 				<File Id="186770803" Language="SFX">
 					<ShortName>Level end.wav</ShortName>
 					<Path>SFX\Level end_10C4C929.wem</Path>
@@ -119,9 +148,21 @@
 					<ShortName>Sync.wav</ShortName>
 					<Path>SFX\Sync_10C4C929.wem</Path>
 				</File>
+				<File Id="561354733" Language="SFX">
+					<ShortName>dooropen.wav</ShortName>
+					<Path>SFX\dooropen_10C4C929.wem</Path>
+				</File>
 				<File Id="568245240" Language="SFX">
 					<ShortName>sadchunk.wav</ShortName>
 					<Path>SFX\sadchunk_10C4C929.wem</Path>
+				</File>
+				<File Id="580436319" Language="SFX">
+					<ShortName>buttonreject.wav</ShortName>
+					<Path>SFX\buttonreject_10C4C929.wem</Path>
+				</File>
+				<File Id="637548085" Language="SFX">
+					<ShortName>Dice to Meet You.wav</ShortName>
+					<Path>SFX\Dice to Meet You_D79FB2B7.wem</Path>
 				</File>
 				<File Id="667903303" Language="SFX">
 					<ShortName>Dice clack.wav</ShortName>

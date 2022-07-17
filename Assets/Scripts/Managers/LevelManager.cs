@@ -3,10 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager> {
     
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.R))
+            RestartLevel();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ReturnToMainMenu();
+    }
+
     public static void LoadNextLevel() {
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
 
         if (nextIndex < SceneManager.sceneCountInBuildSettings) {
             SceneManager.LoadScene(nextIndex);
@@ -25,8 +31,7 @@ public class LevelManager : Singleton<LevelManager> {
         SceneManager.LoadScene(currentScene.buildIndex);
     }
 
-    // This one is low-priority and depends on time. We should probably move it into the turn manager, honestly.
-    public static void Undo() {
-        // TODO
+    public static void LoadLevel(int buildIndex) {
+        SceneManager.LoadScene(buildIndex);
     }
 }

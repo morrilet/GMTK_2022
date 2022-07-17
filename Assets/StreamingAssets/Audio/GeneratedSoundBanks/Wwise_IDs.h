@@ -14,10 +14,14 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_BUMP = 1389500738U;
+        static const AkUniqueID PLAY_BUTTONREJECT = 1147451143U;
         static const AkUniqueID PLAY_CHUNK = 3523295953U;
         static const AkUniqueID PLAY_CLACK = 44748538U;
         static const AkUniqueID PLAY_CLOSEDOOR = 3498455162U;
         static const AkUniqueID PLAY_DESYNC = 3775235650U;
+        static const AkUniqueID PLAY_DICE_TO_MEET_YOU = 2431542269U;
+        static const AkUniqueID PLAY_DOORCLOSE = 2721379730U;
+        static const AkUniqueID PLAY_DOOROPEN = 3197300806U;
         static const AkUniqueID PLAY_LEVELEND = 4258122755U;
         static const AkUniqueID PLAY_MENUCLICK = 2576276897U;
         static const AkUniqueID PLAY_OPENDOOR = 4143125550U;

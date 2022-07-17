@@ -55,12 +55,7 @@ public class TurnManager : Singleton<TurnManager> {
 
     public void Tick() {
         currentTickPointer = (currentTickPointer + 1) % turnOrder.Length;
-        // Debug.Log($"Tick: {turnOrder[currentTickPointer]}");
-
         StartNextAction();
-
-        // if (onTick != null)
-        //     onTick(turnOrder[currentTickPointer]);
     }
 
     public TICK_TYPE GetCurrentTurn() {

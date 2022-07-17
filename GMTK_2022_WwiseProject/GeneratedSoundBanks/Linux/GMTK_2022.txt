@@ -2,8 +2,12 @@ Event	ID	Name			Wwise Object Path	Notes
 	44748538	Play_clack			\Default Work Unit\Play_clack	
 	249366039	Play_sync			\Default Work Unit\Play_sync	
 	426136485	Play_sadchunk			\Default Work Unit\Play_sadchunk	
+	1147451143	Play_buttonreject			\Default Work Unit\Play_buttonreject	
 	1389500738	Play_bump			\Default Work Unit\Play_bump	
+	2431542269	Play_Dice_to_Meet_You			\Default Work Unit\Play_Dice_to_Meet_You	
 	2576276897	Play_Menuclick			\Default Work Unit\Play_Menuclick	
+	2721379730	Play_doorclose			\Default Work Unit\Play_doorclose	
+	3197300806	Play_dooropen			\Default Work Unit\Play_dooropen	
 	3498455162	Play_closedoor			\Default Work Unit\Play_closedoor	
 	3523295953	Play_chunk			\Default Work Unit\Play_chunk	
 	3775235650	Play_desync			\Default Work Unit\Play_desync	
@@ -338,13 +342,17 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	106995624	Menuclick	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\Menuclick_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menuclick		88272
+	142808323	doorclose	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\doorclose_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\doorclose		44012
 	186770803	Level end	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\Level end_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Level end		349372
 	427945622	Door close	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\Door close_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Door close		276348
 	494648701	Sync	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\Sync_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sync		174052
+	561354733	dooropen	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\dooropen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\dooropen		69376
 	568245240	sadchunk	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\sadchunk_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\sadchunk		13092
+	580436319	buttonreject	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\buttonreject_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\buttonreject		228972
+	637548085	Dice to Meet You	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\Dice to Meet You_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\New Music Playlist Container\Dice to Meet You\Dice to Meet You		23928996
 	667903303	Dice clack	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\Dice clack_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\clack\Dice clack		28432
 	718723063	Desync	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\Desync_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Desync		139232
 	780614552	chunk	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\chunk_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\chunk		65004
-	1063556422	wall_bounce	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\wall_bounce_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\wall_bounce		30664
+	1063556422	altclack	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\wall_bounce_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\altclack		30664
 	1070676796	Door open	D:\Users\Ethan\Documents\Projects\GMTK_2022\GMTK_2022\GMTK_2022_WwiseProject\.cache\Linux\SFX\Door open_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Door open		355988
 

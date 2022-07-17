@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: b67c99db78898942ab3746d88fa2900b
     GuidInternal: 
-    m_lastTime: -8585435698960821284
+    m_lastTime: -8585435327431105513
     List: []
   - PhysicalPath: Virtual Acoustics\Factory Acoustic Textures.wwu
     PathAndIcons:
@@ -37,7 +37,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Factory Acoustic Textures
     guid: 6b663d46a83ca54f8b4a5fef12b883f6
     GuidInternal: 
-    m_lastTime: -8585435698982183475
+    m_lastTime: -8585435327430905810
     List:
     - name: Acoustic_Banner
       guid: f2532d2fccda8e408b8898b1b52a26d6
@@ -303,7 +303,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: d88eada52e6be9438eca97432ee5c7d9
     GuidInternal: 
-    m_lastTime: -8585435698963061081
+    m_lastTime: -8585435327444292320
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -331,7 +331,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 5e38e343077728418d8b4e4062dfdb38
     GuidInternal: 
-    m_lastTime: -8585435698961691284
+    m_lastTime: -8585435327431863994
     List:
     - name: GMTK_2022
       guid: 403066d5d3a4c74d9868b3e683d6e163
@@ -359,7 +359,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f31a9073ace3754ea9b277db5b358320
     GuidInternal: 
-    m_lastTime: -8585435698964831063
+    m_lastTime: -8585435327429135430
     List:
     - name: Play_bump
       guid: 7d803524464c844394c7b364d1c58b78
@@ -376,8 +376,25 @@ MonoBehaviour:
         guid: 7d803524464c844394c7b364d1c58b78
       Path: Events\Default Work Unit\Play_bump
       maxAttenuation: 0
-      maxDuration: 0.159375
-      minDuration: 0.159375
+      maxDuration: 0.325636
+      minDuration: 0.269277
+    - name: Play_buttonreject
+      guid: 05a9f4393ba55b4881044dab0cd055b4
+      id: 1147451143
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f31a9073ace3754ea9b277db5b358320
+      - ElementName: Play_buttonreject
+        ObjectType: 3
+        guid: 05a9f4393ba55b4881044dab0cd055b4
+      Path: Events\Default Work Unit\Play_buttonreject
+      maxAttenuation: 0
+      maxDuration: 1.297302
+      minDuration: 1.297302
     - name: Play_chunk
       guid: d9a73752572ba54abe71f4e7bcb4eba4
       id: 3523295953
@@ -410,8 +427,8 @@ MonoBehaviour:
         guid: b9739af1fe26c94e9034c0d43d20b4b0
       Path: Events\Default Work Unit\Play_clack
       maxAttenuation: 0
-      maxDuration: 0.170477
-      minDuration: 0.151703
+      maxDuration: 0.194699
+      minDuration: 0.173257
     - name: Play_closedoor
       guid: 483ebbea1e5edc4796415b75e40c086a
       id: 3498455162
@@ -446,6 +463,57 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.724833
       minDuration: 0.724833
+    - name: Play_Dice_to_Meet_You
+      guid: f8cc502187bcaa4ab1ca5930339b9ea6
+      id: 2431542269
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f31a9073ace3754ea9b277db5b358320
+      - ElementName: Play_Dice_to_Meet_You
+        ObjectType: 3
+        guid: f8cc502187bcaa4ab1ca5930339b9ea6
+      Path: Events\Default Work Unit\Play_Dice_to_Meet_You
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_doorclose
+      guid: 1ae7876b3b13734da24efa7e1cfa43f7
+      id: 2721379730
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f31a9073ace3754ea9b277db5b358320
+      - ElementName: Play_doorclose
+        ObjectType: 3
+        guid: 1ae7876b3b13734da24efa7e1cfa43f7
+      Path: Events\Default Work Unit\Play_doorclose
+      maxAttenuation: 0
+      maxDuration: 0.249138
+      minDuration: 0.249138
+    - name: Play_dooropen
+      guid: 03934e4dc02f874fa468c92b6a9e5864
+      id: 3197300806
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f31a9073ace3754ea9b277db5b358320
+      - ElementName: Play_dooropen
+        ObjectType: 3
+        guid: 03934e4dc02f874fa468c92b6a9e5864
+      Path: Events\Default Work Unit\Play_dooropen
+      maxAttenuation: 0
+      maxDuration: 0.392925
+      minDuration: 0.392925
     - name: Play_levelend
       guid: b5375c0ffd719440b7276e4149cbb35b
       id: 4258122755
@@ -543,7 +611,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: ca53b081fcbd4446ad613fb5a438bb8e
     GuidInternal: 
-    m_lastTime: -8585435698964671079
+    m_lastTime: -8585435327429005955
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -557,7 +625,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 18efef1ad9653349bca7cd00979caca9
     GuidInternal: 
-    m_lastTime: -8585435698961351290
+    m_lastTime: -8585435327431565274
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -571,7 +639,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 777eaf1c0137cb4ba96d6e0323cfaee7
     GuidInternal: 
-    m_lastTime: -8585435698961171283
+    m_lastTime: -8585435327431385853
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -585,11 +653,11 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 040b4a744f7ff64090eee2f1da0375bf
     GuidInternal: 
-    m_lastTime: -8585435698960991293
+    m_lastTime: -8585435327431251405
     List: []
-  ExpandedFileSystemItemIds: 020000000300000012000000130000001500000016000000
+  ExpandedFileSystemItemIds: 010000000200000003000000040000000500000008000000090000001300000015000000
   ExpandedWaapiItemIds: 08000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 1
-  CurrentPluginConfig: 
+  CurrentPluginConfig: Release
