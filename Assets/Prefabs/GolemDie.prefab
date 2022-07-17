@@ -87,7 +87,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   floorMask:
     serializedVersion: 2
     m_Bits: 512

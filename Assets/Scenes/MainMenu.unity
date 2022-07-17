@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 535278754}
   - component: {fileID: 535278755}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: MainMenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1130,6 +1130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6adfce267ffed2b4bbbeae7bd579984f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuPanel: {fileID: 0}
+  levelSelectPanel: {fileID: 0}
 --- !u!1 &802925477
 GameObject:
   m_ObjectHideFlags: 0
