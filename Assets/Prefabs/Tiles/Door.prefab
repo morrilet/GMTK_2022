@@ -140,3 +140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelObject: {fileID: 1738307322}
+  blockingMask:
+    serializedVersion: 2
+    m_Bits: 2048

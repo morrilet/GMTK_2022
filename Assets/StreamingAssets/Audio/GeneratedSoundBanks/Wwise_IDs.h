@@ -11,6 +11,26 @@
 
 namespace AK
 {
+    namespace EVENTS
+    {
+        static const AkUniqueID PLAY_BUMP = 1389500738U;
+        static const AkUniqueID PLAY_CHUNK = 3523295953U;
+        static const AkUniqueID PLAY_CLACK = 44748538U;
+        static const AkUniqueID PLAY_CLOSEDOOR = 3498455162U;
+        static const AkUniqueID PLAY_DESYNC = 3775235650U;
+        static const AkUniqueID PLAY_LEVELEND = 4258122755U;
+        static const AkUniqueID PLAY_MENUCLICK = 2576276897U;
+        static const AkUniqueID PLAY_OPENDOOR = 4143125550U;
+        static const AkUniqueID PLAY_SADCHUNK = 426136485U;
+        static const AkUniqueID PLAY_SYNC = 249366039U;
+    } // namespace EVENTS
+
+    namespace BANKS
+    {
+        static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID GMTK_2022 = 4091799443U;
+    } // namespace BANKS
+
     namespace BUSSES
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;

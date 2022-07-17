@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenuPanel;
     public GameObject levelSelectPanel;
 
+    public AK.Wwise.Event audioEvent;
+
     [Space]
 
     public Slider musicSlider;

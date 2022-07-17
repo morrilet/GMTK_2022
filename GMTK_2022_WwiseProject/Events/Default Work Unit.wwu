@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{F0C508F5-46CA-4A7B-A4F0-7225A227B95E}" SchemaVersion="103">
+<WwiseDocument Type="WorkUnit" ID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{F0C508F5-46CA-4A7B-A4F0-7225A227B95E}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_chunk" ID="{5237A7D9-2B57-4AA5-BE71-F4E7BCB4EBA4}">
+					<ChildrenList>
+						<Action Name="" ID="{467AF9F5-3D3F-4573-8F6F-1CDD700DF7C9}" ShortID="173259257">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="chunk" ID="{1020A466-11E9-4C40-A2D8-6945F39439B0}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_clack" ID="{F19A73B9-26FE-4EC9-9034-C0D43D20B4B0}">
+					<ChildrenList>
+						<Action Name="" ID="{3959711E-FE4C-4478-BED8-0A2C1FAF0D1C}" ShortID="691717839">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="clack" ID="{5882BCFF-078F-49BF-AD54-F5B3EDE19557}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_sadchunk" ID="{18B7F5C9-4380-48E7-ADD2-1B55918DE53A}">
+					<ChildrenList>
+						<Action Name="" ID="{3974C688-3E54-42AF-B2F5-FBAFC06990F5}" ShortID="615773077">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sadchunk" ID="{E4DF5EC8-A678-499F-A5B2-F3B5AC5A9C40}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_sync" ID="{096E1249-81EE-4746-8EE6-97CB087BE0C1}">
+					<ChildrenList>
+						<Action Name="" ID="{64DA818E-24CF-4F01-8D9F-16CE38540C49}" ShortID="1058593284">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sync" ID="{EFD49FD7-7F40-47E2-86A7-D0EC83E723A7}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_desync" ID="{2CFA4758-8EF8-4513-B3D4-7E1EA9EFF436}">
+					<ChildrenList>
+						<Action Name="" ID="{55EB8FFA-240B-44B0-891E-1532EC9DAEF4}" ShortID="349978566">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Desync" ID="{C7636082-D9B4-4DB4-96D2-B82872DEEE87}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_opendoor" ID="{AD15968F-60BC-4532-8F0A-C39BF24D748C}">
+					<ChildrenList>
+						<Action Name="" ID="{AE37DBF1-3EFF-4654-AE15-717DF68BCEEE}" ShortID="109638747">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Door open" ID="{5E8D7B47-0EF5-4E09-BA75-14CCFC4FE8E6}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_closedoor" ID="{EABB3E48-5E1E-47DC-9641-5B75E40C086A}">
+					<ChildrenList>
+						<Action Name="" ID="{C32C066D-172B-466A-9745-FA2EBAB50137}" ShortID="188004243">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Door close" ID="{4D8B276D-C99C-49B1-8529-2CFFE80F02CC}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_levelend" ID="{0F5C37B5-71FD-4094-B727-6E4149CBB35B}">
+					<ChildrenList>
+						<Action Name="" ID="{851A0262-A471-48C1-A073-463F4655011B}" ShortID="1048587640">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Level end" ID="{E7D3421F-ED2A-49EB-A28A-A79075416307}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_bump" ID="{2435807D-4C46-4384-94C7-B364D1C58B78}">
+					<ChildrenList>
+						<Action Name="" ID="{F622157B-5635-42BD-9FBE-0AEF9309F4F1}" ShortID="292810118">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="wall_bounce" ID="{BE19BCB7-69A4-4868-85F0-41991FB61552}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Menuclick" ID="{90B399C6-3E41-42F8-9E6E-D72F5580FA6A}">
+					<ChildrenList>
+						<Action Name="" ID="{E12DED85-72A5-4CF1-B1E9-6F52C5510234}" ShortID="322775526">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menuclick" ID="{252D89E5-3B08-4504-9AFB-D642823E1D98}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

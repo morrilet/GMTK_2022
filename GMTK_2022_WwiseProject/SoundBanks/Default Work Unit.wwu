@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{732D9CF2-DB4D-4D92-9970-2ED46D749035}" SchemaVersion="103">
+<WwiseDocument Type="WorkUnit" ID="{43E3385E-7707-4128-8D8B-4E4062DFDB38}" SchemaVersion="103">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{732D9CF2-DB4D-4D92-9970-2ED46D749035}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{43E3385E-7707-4128-8D8B-4E4062DFDB38}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="GMTK_2022" ID="{D5663040-A4D3-4DC7-9868-B3E683D6E163}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_levelend" ID="{0F5C37B5-71FD-4094-B727-6E4149CBB35B}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Menuclick" ID="{90B399C6-3E41-42F8-9E6E-D72F5580FA6A}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_bump" ID="{2435807D-4C46-4384-94C7-B364D1C58B78}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Menuclick" ID="{252D89E5-3B08-4504-9AFB-D642823E1D98}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_desync" ID="{2CFA4758-8EF8-4513-B3D4-7E1EA9EFF436}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_opendoor" ID="{AD15968F-60BC-4532-8F0A-C39BF24D748C}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_sync" ID="{096E1249-81EE-4746-8EE6-97CB087BE0C1}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_closedoor" ID="{EABB3E48-5E1E-47DC-9641-5B75E40C086A}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Sync" ID="{EFD49FD7-7F40-47E2-86A7-D0EC83E723A7}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="wall_bounce" ID="{BE19BCB7-69A4-4868-85F0-41991FB61552}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_sadchunk" ID="{18B7F5C9-4380-48E7-ADD2-1B55918DE53A}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="sadchunk" ID="{E4DF5EC8-A678-499F-A5B2-F3B5AC5A9C40}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Door close" ID="{4D8B276D-C99C-49B1-8529-2CFFE80F02CC}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Dice clack" ID="{D4338741-AC51-49BD-A400-91EA0FE97229}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="clack" ID="{5882BCFF-078F-49BF-AD54-F5B3EDE19557}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Level end" ID="{E7D3421F-ED2A-49EB-A28A-A79075416307}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Actor-Mixer Hierarchy" ID="{5EA7BBF8-64C0-4A50-8821-A07E8BE21D68}" WorkUnitID="{5EA7BBF8-64C0-4A50-8821-A07E8BE21D68}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_chunk" ID="{5237A7D9-2B57-4AA5-BE71-F4E7BCB4EBA4}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="chunk" ID="{1020A466-11E9-4C40-A2D8-6945F39439B0}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Desync" ID="{C7636082-D9B4-4DB4-96D2-B82872DEEE87}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Door open" ID="{5E8D7B47-0EF5-4E09-BA75-14CCFC4FE8E6}" WorkUnitID="{A97FD48B-3B09-4360-9A06-E5FF842F2BCB}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_clack" ID="{F19A73B9-26FE-4EC9-9034-C0D43D20B4B0}" WorkUnitID="{73901AF3-E3AC-4E75-A9B2-77DB5B358320}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

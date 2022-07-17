@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{CB73361E-8855-4C67-BD90-F27AC66673C3}" SchemaVersion="103">
+<WwiseDocument Type="WorkUnit" ID="{FE61789B-A348-46F9-9C84-2D303828109A}" SchemaVersion="103">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{CB73361E-8855-4C67-BD90-F27AC66673C3}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{FE61789B-A348-46F9-9C84-2D303828109A}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="New_Wwise_Parametric_EQ" ID="{1052E04F-CA3D-402F-B99F-985B5310A12A}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Effects>
 </WwiseDocument>

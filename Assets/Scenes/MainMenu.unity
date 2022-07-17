@@ -673,6 +673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208243394}
   - component: {fileID: 208243393}
+  - component: {fileID: 208243395}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -719,6 +720,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208243395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208243392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c90646fd9564d4b81735c929ed42b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a248bbff83dc95e4c925f4e56b5fd3e6, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &248028863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,8 +1510,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuPanel: {fileID: 535278753}
   levelSelectPanel: {fileID: 1737667157}
-  musicSlider: {fileID: 0}
-  effectsSlider: {fileID: 0}
+  audioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 100b1c17cdee63f40b65ca65fc4ed4fe, type: 2}
+  musicSlider: {fileID: 1839478695}
+  effectsSlider: {fileID: 802925479}
 --- !u!1 &802925477
 GameObject:
   m_ObjectHideFlags: 0

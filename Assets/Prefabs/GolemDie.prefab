@@ -110,6 +110,10 @@ MonoBehaviour:
   - value: 6
     normal: {x: 0, y: -1, z: 0}
     debugColor: {r: 0, g: 0, b: 0, a: 0}
+  moveSoundEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d58522f91713bff409eea32253482358, type: 2}
 --- !u!1001 &6780574881630356679
 PrefabInstance:
   m_ObjectHideFlags: 0

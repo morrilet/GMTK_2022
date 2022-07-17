@@ -11,10 +11,143 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2754342975">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2167264542">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="4091799443" Language="SFX" Hash="2462527457">
+			<ObjectPath>\SoundBanks\Default Work Unit\GMTK_2022</ObjectPath>
+			<ShortName>GMTK_2022</ShortName>
+			<Path>GMTK_2022.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1389500738" Name="Play_bump" ObjectPath="\Events\Default Work Unit\Play_bump" DurationType="OneShot" DurationMin="0.159375" DurationMax="0.159375">
+					<IncludedMemoryFiles>
+						<File Id="1063556422" Language="SFX">
+							<ShortName>wall_bounce.wav</ShortName>
+							<Path>SFX\wall_bounce_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3523295953" Name="Play_chunk" ObjectPath="\Events\Default Work Unit\Play_chunk" DurationType="OneShot" DurationMin="0.338229" DurationMax="0.338229">
+					<IncludedMemoryFiles>
+						<File Id="780614552" Language="SFX">
+							<ShortName>chunk.wav</ShortName>
+							<Path>SFX\chunk_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="44748538" Name="Play_clack" ObjectPath="\Events\Default Work Unit\Play_clack" DurationType="OneShot" DurationMin="0.151703" DurationMax="0.170477">
+					<IncludedMemoryFiles>
+						<File Id="667903303" Language="SFX">
+							<ShortName>Dice clack.wav</ShortName>
+							<Path>SFX\Dice clack_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3498455162" Name="Play_closedoor" ObjectPath="\Events\Default Work Unit\Play_closedoor" DurationType="OneShot" DurationMin="1.566236" DurationMax="1.566236">
+					<IncludedMemoryFiles>
+						<File Id="427945622" Language="SFX">
+							<ShortName>Door close.wav</ShortName>
+							<Path>SFX\Door close_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3775235650" Name="Play_desync" ObjectPath="\Events\Default Work Unit\Play_desync" DurationType="OneShot" DurationMin="0.724833" DurationMax="0.724833">
+					<IncludedMemoryFiles>
+						<File Id="718723063" Language="SFX">
+							<ShortName>Desync.wav</ShortName>
+							<Path>SFX\Desync_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4258122755" Name="Play_levelend" ObjectPath="\Events\Default Work Unit\Play_levelend" DurationType="OneShot" DurationMin="1.980204" DurationMax="1.980204">
+					<IncludedMemoryFiles>
+						<File Id="186770803" Language="SFX">
+							<ShortName>Level end.wav</ShortName>
+							<Path>SFX\Level end_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2576276897" Name="Play_Menuclick" ObjectPath="\Events\Default Work Unit\Play_Menuclick" DurationType="OneShot" DurationMin="0.500045" DurationMax="0.500045">
+					<IncludedMemoryFiles>
+						<File Id="106995624" Language="SFX">
+							<ShortName>Menuclick.wav</ShortName>
+							<Path>SFX\Menuclick_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4143125550" Name="Play_opendoor" ObjectPath="\Events\Default Work Unit\Play_opendoor" DurationType="OneShot" DurationMin="2.01771" DurationMax="2.01771">
+					<IncludedMemoryFiles>
+						<File Id="1070676796" Language="SFX">
+							<ShortName>Door open.wav</ShortName>
+							<Path>SFX\Door open_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="426136485" Name="Play_sadchunk" ObjectPath="\Events\Default Work Unit\Play_sadchunk" DurationType="OneShot" DurationMin="0.073855" DurationMax="0.073855">
+					<IncludedMemoryFiles>
+						<File Id="568245240" Language="SFX">
+							<ShortName>sadchunk.wav</ShortName>
+							<Path>SFX\sadchunk_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="249366039" Name="Play_sync" ObjectPath="\Events\Default Work Unit\Play_sync" DurationType="OneShot" DurationMin="0.906187" DurationMax="0.906187">
+					<IncludedMemoryFiles>
+						<File Id="494648701" Language="SFX">
+							<ShortName>Sync.wav</ShortName>
+							<Path>SFX\Sync_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="106995624" Language="SFX">
+					<ShortName>Menuclick.wav</ShortName>
+					<Path>SFX\Menuclick_10C4C929.wem</Path>
+				</File>
+				<File Id="186770803" Language="SFX">
+					<ShortName>Level end.wav</ShortName>
+					<Path>SFX\Level end_10C4C929.wem</Path>
+				</File>
+				<File Id="427945622" Language="SFX">
+					<ShortName>Door close.wav</ShortName>
+					<Path>SFX\Door close_10C4C929.wem</Path>
+				</File>
+				<File Id="494648701" Language="SFX">
+					<ShortName>Sync.wav</ShortName>
+					<Path>SFX\Sync_10C4C929.wem</Path>
+				</File>
+				<File Id="568245240" Language="SFX">
+					<ShortName>sadchunk.wav</ShortName>
+					<Path>SFX\sadchunk_10C4C929.wem</Path>
+				</File>
+				<File Id="667903303" Language="SFX">
+					<ShortName>Dice clack.wav</ShortName>
+					<Path>SFX\Dice clack_10C4C929.wem</Path>
+				</File>
+				<File Id="718723063" Language="SFX">
+					<ShortName>Desync.wav</ShortName>
+					<Path>SFX\Desync_10C4C929.wem</Path>
+				</File>
+				<File Id="780614552" Language="SFX">
+					<ShortName>chunk.wav</ShortName>
+					<Path>SFX\chunk_10C4C929.wem</Path>
+				</File>
+				<File Id="1063556422" Language="SFX">
+					<ShortName>wall_bounce.wav</ShortName>
+					<Path>SFX\wall_bounce_10C4C929.wem</Path>
+				</File>
+				<File Id="1070676796" Language="SFX">
+					<ShortName>Door open.wav</ShortName>
+					<Path>SFX\Door open_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+			<GameParameters>
+				<GameParameter Id="129" Name="MIDI note velocity" ObjectPath="MIDI\MIDI note velocity"/>
+				<GameParameter Id="132" Name="MIDI note frequency" ObjectPath="MIDI\MIDI note frequency"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

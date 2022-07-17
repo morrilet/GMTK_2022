@@ -14,6 +14,9 @@ public class Die : MonoBehaviour {
     [Space, Header("Sides")]
     public SideData[] sides;
 
+    [Space, Header("Effects")]
+    public AK.Wwise.Event moveSoundEvent;
+
     [System.Serializable]
     public struct SideData {
         public int value;
@@ -83,6 +86,8 @@ public class Die : MonoBehaviour {
 
             yield return null;
         }
+
+        moveSoundEvent.Post(this.gameObject);
 
         transform.position = targetPosition;
         transform.rotation = targetRotation;
