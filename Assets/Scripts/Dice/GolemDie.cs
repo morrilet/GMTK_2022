@@ -9,6 +9,10 @@ public class GolemDie : Die, ITurnObject
         if (isValidMoveDirection(moveDirection)) {
             TurnManager.QueueAction(Move);
         }
+        // If the movement is invalid clear the direction so we don't try to use it next turn. 
+        else {
+            moveDirection = Vector3.zero;
+        }
     }
 
     // TODO: Animate sync
