@@ -360,6 +360,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132147817468554, guid: 7d7a6e619952488458d448946f5d8677, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5011224046213196308, guid: 7d7a6e619952488458d448946f5d8677, type: 3}
       propertyPath: triggerObjects.Array.data[0]
       value: 
@@ -833,7 +837,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6259365524699396132, guid: 895b26fa41157084db804cdecde8cff3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6259365524699396132, guid: 895b26fa41157084db804cdecde8cff3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1234,7 +1238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1543480916
 PrefabInstance:
@@ -1859,7 +1863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8264649252002945625, guid: 1f873b2559d48bc4f8f429cba392a989, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8264649252002945625, guid: 1f873b2559d48bc4f8f429cba392a989, type: 3}
       propertyPath: m_LocalPosition.x

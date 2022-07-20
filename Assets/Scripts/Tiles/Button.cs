@@ -25,7 +25,7 @@ public class Button : MonoBehaviour, ITurnObject
     public bool requirePlayer;
     public bool requireSpecificValue = true;
 
-    private float triggerDistance = 0.1f;
+    private float triggerDistance = 0.25f;
     private bool triggered = false;
 
     private void Awake() {
@@ -67,11 +67,11 @@ public class Button : MonoBehaviour, ITurnObject
             Die hitDie = hit.collider.gameObject.GetComponent<Die>();
 
             if (requirePlayer && hitDie != WorldController.instance.player) {
-                // failEvent.Post(this.gameObject);  // Play the audio cue.
+                failEvent.Post(this.gameObject);  // Play the audio cue.
                 return false;
             }
             if (requireSpecificValue && hitDie.GetCurrentSide() != requiredValue) {
-                // failEvent.Post(this.gameObject);  // Play the audio cue.
+                failEvent.Post(this.gameObject);  // Play the audio cue.
                 return false;
             }
             return true;
@@ -133,5 +133,5 @@ public class Button : MonoBehaviour, ITurnObject
         // Implemented by children.
     }
 
-    public TurnManager.TICK_TYPE GetTurnType() { return TurnManager.TICK_TYPE.WORLD; }
+    public TurnManager.TURN_TYPE GetTurnType() { return TurnManager.TURN_TYPE.WORLD; }
 }

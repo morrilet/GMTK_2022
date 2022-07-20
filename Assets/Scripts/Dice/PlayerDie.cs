@@ -22,7 +22,7 @@ public class PlayerDie : Die {
 
     private void TryProcessTurn() {
         // Tick if it's the players turn and we have given some input.
-        if (TurnManager.instance.GetCurrentTurn() == TurnManager.TICK_TYPE.PLAYER && TurnManager.instance.ReadyForNextTurn()) {
+        if (TurnManager.instance.GetCurrentTurn() == TurnManager.TURN_TYPE.PLAYER && TurnManager.instance.ReadyForNextTurn()) {
             Vector3 desiredMoveDirection = GetMoveDirectionFromInput();
             moveDirection = desiredMoveDirection;
 
@@ -32,13 +32,14 @@ public class PlayerDie : Die {
                 moveDirection = Vector3.zero;
             }
             
-            if (MovementShouldTakeTurn(desiredMoveDirection))
+            if (MovementShouldTakeTurn(desiredMoveDirection)) {
                 TurnManager.QueueAction(Move);
-                foreach(GolemDie golem in WorldController.instance.golems) {
+                foreach(GolemDie golem in GolemController.instance.golems) {
                     if (golem.IsSynced())
                         golem.QueueMove(desiredMoveDirection);
                 }
                 TurnManager.TakeTurn();
+            }
         }
     }
 

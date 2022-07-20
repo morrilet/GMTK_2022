@@ -71,6 +71,10 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: f49e2d5958e30a448b60b61c42239384, type: 2}
+  failEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7710583c5d419e9478e0c53e3d54a6fc, type: 2}
   valueMaterials:
   - {fileID: 2100000, guid: 241d9d20dc1927b439e290d406f34b26, type: 2}
   - {fileID: 2100000, guid: e99faca5a6793ee4a9c4bd8f203690a9, type: 2}

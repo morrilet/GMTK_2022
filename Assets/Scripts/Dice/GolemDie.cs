@@ -30,5 +30,5 @@ public class GolemDie : Die, ITurnObject
         moveDirection = direction;
     }
 
-    public TurnManager.TICK_TYPE GetTurnType() { return TurnManager.TICK_TYPE.GOLEM; }
+    public TurnManager.TURN_TYPE GetTurnType() { return TurnManager.TURN_TYPE.GOLEM; }
 }

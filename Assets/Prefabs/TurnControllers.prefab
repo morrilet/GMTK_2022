@@ -75,8 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4710475d6348242858bd07f21298dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnType: 2
   player: {fileID: 0}
-  golems: []
 --- !u!1 &3688688541866410381
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,3 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51fc1c886dc7004780eb77026907a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnType: 1
+  golems: []
