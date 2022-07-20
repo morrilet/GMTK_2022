@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9ceee840ad9b5eb4da6ad76e0b56fcad, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1615,6 +1615,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 850358360691277015, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128539242573011363, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6266718112437299704, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1669,6 +1677,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6266718112437299704, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664040275846027101, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3480,6 +3492,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant
       objectReference: {fileID: 0}
+    - target: {fileID: 850358360691277015, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128539242573011363, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6266718112437299704, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3534,6 +3554,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6266718112437299704, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664040275846027101, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4523,6 +4547,24 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!1 &1495585477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 850358360691277015, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
+  m_PrefabInstance: {fileID: 423305297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1495585478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495585477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a36a780514d9144c9341031938d3300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -5
 --- !u!1001 &1520484250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4767,6 +4809,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1643657112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 850358360691277015, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
+  m_PrefabInstance: {fileID: 1008900385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1643657113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643657112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a36a780514d9144c9341031938d3300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 5
 --- !u!1 &1659414136
 GameObject:
   m_ObjectHideFlags: 0
