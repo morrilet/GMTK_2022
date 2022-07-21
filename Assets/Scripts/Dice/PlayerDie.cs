@@ -26,6 +26,7 @@ public class PlayerDie : Die {
             Vector3 desiredMoveDirection = GetMoveDirectionFromInput();
             moveDirection = desiredMoveDirection;
 
+            // TODO: Consider moving this into a `TryMove(dir)` function so that we can use it in `ForceExternalMove()`
             // If our desired direction is blocked, don't move that way.
             if (!isValidMoveDirection(moveDirection)) {
                 // TODO: Wiggle!

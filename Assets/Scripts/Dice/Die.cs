@@ -41,6 +41,19 @@ public class Die : MonoBehaviour {
     }
 
     /// <summary>
+    /// Immediately forces the die to move if able, or play the failure effects if not. This is
+    /// independent of the turn system, so it happens as soon as it's called.
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator ForceExternalMove(Vector3 direction) {
+        if (isValidMoveDirection(direction))
+            yield return AnimateMove(direction);
+        else
+            // TODO: Wiggle!
+            yield return null;
+    }
+
+    /// <summary>
     /// Get the local pivot point to use for rotating the die based on the direction 
     /// of travel. Should be the bottom edge of the direction we're headed.
     /// </summary>
