@@ -64,7 +64,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.06437291
     - serializedVersion: 3
-      time: 0.5
+      time: 0.4
       value: 1
       inSlope: 0
       outSlope: 0
@@ -75,16 +75,50 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -6.383578
-      outSlope: -6.383578
+      inSlope: -2.9587195
+      outSlope: -2.9587195
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.04217553
+      inWeight: 0.06659279
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  landingRollTileCount: 1
+  landingRollTileCount: 2
+  bounceMaxHeight: 0.25
+  bounceHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.2919674
+      outSlope: 5.2919674
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06437291
+    - serializedVersion: 3
+      time: 0.4
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.9587195
+      outSlope: -2.9587195
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06659279
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!65 &6052913859143157232
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class JumpPad : MonoBehaviour, ITurnObject
 
     [Space, Header("Landing Parameters")]
     public int landingRollTileCount;
+    public float bounceMaxHeight;
+    public AnimationCurve bounceHeightCurve;
 
     private float triggerDistance = 0.25f;
     private Transform projectileTransform;
@@ -66,6 +68,37 @@ public class JumpPad : MonoBehaviour, ITurnObject
         }
         return result;
     }
+
+    /// <summary>
+    /// Bounces the target and moves it forward using the dice movement system.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="yBaseline"></param>
+    /// <returns></returns>
+    private IEnumerator BounceAndMoveDie(Die target, Vector3 direction, float yBaseline) {
+        float timer = 0.0f;
+        float currentY = yBaseline;
+
+        // Asynchronously move the die while we operate on the bounce aspect of the effect.
+        StartCoroutine(target.ForceExternalMove(direction));
+
+        // Start bouncing the die.
+        float deltaY = 0.0f;
+        while (timer < target.moveDuration) {
+
+            deltaY = yBaseline + (bounceHeightCurve.Evaluate(timer / target.moveDuration) * bounceMaxHeight) - currentY;
+            currentY = yBaseline + (bounceHeightCurve.Evaluate(timer / target.moveDuration) * bounceMaxHeight);
+            
+            // target.transform.position = new Vector3(target.transform.position.x, currentY, target.transform.position.z);
+            target.transform.position += Vector3.up * deltaY;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Set the Y position of the target back to baseline.
+        target.transform.position = new Vector3(target.transform.position.x, yBaseline, target.transform.position.z);
+    }
     
     private IEnumerator Jump() {
         Vector3 endPosition = targetTile.position;
@@ -97,8 +130,12 @@ public class JumpPad : MonoBehaviour, ITurnObject
         Die projectileDie = projectileTransform.GetComponent<Die>();
         int landingTilesMoved = 0;
         while(landingTilesMoved < landingRollTileCount) {
-            yield return projectileDie.ForceExternalMove(landingDirection);
+            // yield return projectileDie.ForceExternalMove(landingDirection);
+            yield return BounceAndMoveDie(projectileDie, landingDirection, endPosition.y);
             landingTilesMoved += 1;
         }
+
+        // Set the final position after all effects have been applied to be sure we're still on-grid and won't accumulate errors.
+        projectileTransform.position = endPosition + (projectileDie.moveDistance * landingDirection * landingRollTileCount);
     }
 }

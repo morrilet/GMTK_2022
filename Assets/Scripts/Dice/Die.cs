@@ -62,7 +62,7 @@ public class Die : MonoBehaviour {
     protected Vector3 GetPivotPointForDirection(Vector3 direction) {
         Vector3 pivot = Vector3.zero;
 
-        // Pivot height is always the same.
+        // Local pivot height is always the same.
         pivot.y = -collider.bounds.extents.y;
         
         // Pivot position on the XZ plane is a function of our movement direction.
@@ -88,15 +88,20 @@ public class Die : MonoBehaviour {
         Vector3 targetPosition = transform.position + (direction * moveDistance);
         Quaternion targetRotation = Quaternion.AngleAxis(rotationAmount, rotationAxis) * transform.rotation;
 
-        Vector3 pivotPoint = GetPivotPointForDirection(direction);
+        Vector3 localPivot = GetPivotPointForDirection(direction);
+        Vector3 worldPivot = localPivot;
 
         while (timer < moveDuration) {
             timer += Time.deltaTime;
 
             float angleStep = (rotationAmount * Time.deltaTime) / moveDuration;
             Quaternion nextRotation = Quaternion.AngleAxis(angleStep, rotationAxis);
-            RotateAround(startPosition + pivotPoint, nextRotation);
+            worldPivot = startPosition + localPivot;
 
+            // Keep the world pivot locked to the bottom of the die even if it's in the air.
+            worldPivot.y = transform.position.y - collider.bounds.extents.y;
+
+            RotateAround(worldPivot, nextRotation);
             yield return null;
         }
 
