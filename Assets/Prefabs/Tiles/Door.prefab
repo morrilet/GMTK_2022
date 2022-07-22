@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 823019200020153992}
   - component: {fileID: 893172904235203174}
+  - component: {fileID: 2101067856}
   m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
@@ -56,6 +57,19 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 1b28e6626a5c52a4cad7b9509d7fe5e6, type: 2}
+--- !u!114 &2101067856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823019200020153993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf404aa8c045024d9dc4e934dca8e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionType: 1
 --- !u!65 &503359508
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4,11 +4,17 @@ using System.Collections;
 public class PlayerDie : Die {
     
     private float movementDeadzone = 0.01f;
+    private bool allowInput = false;
 
     protected override void Awake() {
         base.Awake();
 
         moveDirection = Vector3.zero;
+    }
+
+    private void Start() {
+        LevelManager.instance.onTransitionBegin += () => allowInput = false;
+        LevelManager.instance.onTransitionEnd += () => allowInput = true;
     }
 
     public Vector3 GetMoveDirection() {
@@ -21,6 +27,9 @@ public class PlayerDie : Die {
     }
 
     private void TryProcessTurn() {
+        if (!allowInput)
+            return;
+
         // Tick if it's the players turn and we have given some input.
         if (TurnManager.instance.GetCurrentTurn() == TurnManager.TURN_TYPE.PLAYER && TurnManager.instance.ReadyForNextTurn()) {
             Vector3 desiredMoveDirection = GetMoveDirectionFromInput();

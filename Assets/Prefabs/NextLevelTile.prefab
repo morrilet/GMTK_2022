@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 6259365524699396132}
   - component: {fileID: 6259365524699396135}
   - component: {fileID: 7099428093788574869}
+  - component: {fileID: 2610804984920509433}
   m_Layer: 9
   m_Name: NextLevelTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6259365524699396132
 Transform:
@@ -101,6 +102,19 @@ MonoBehaviour:
   requireHeldDown: 0
   requirePlayer: 1
   requireSpecificValue: 1
+--- !u!114 &2610804984920509433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259365524699396133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf404aa8c045024d9dc4e934dca8e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionType: 0
 --- !u!1001 &1267090005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0d9cca38a47a2384f89af28498623667, type: 2}
     - target: {fileID: -2073337827853667701, guid: 18fcfee4cc54bce49b95b4099fd717aa, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 18fcfee4cc54bce49b95b4099fd717aa, type: 3}
       propertyPath: m_Name
@@ -170,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 18fcfee4cc54bce49b95b4099fd717aa, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18fcfee4cc54bce49b95b4099fd717aa, type: 3}

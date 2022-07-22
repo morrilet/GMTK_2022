@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8264649252002945625}
   - component: {fileID: 4371060359617385866}
   - component: {fileID: 1259523312793368527}
+  - component: {fileID: 2298861105881461833}
   m_Layer: 11
   m_Name: GolemDie
   m_TagString: Untagged
@@ -114,6 +115,19 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: d58522f91713bff409eea32253482358, type: 2}
+--- !u!114 &2298861105881461833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6725600872927999905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf404aa8c045024d9dc4e934dca8e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionType: 1
 --- !u!1001 &6780574881630356679
 PrefabInstance:
   m_ObjectHideFlags: 0

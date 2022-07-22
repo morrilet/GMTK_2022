@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 4829160531605421234}
   - component: {fileID: 4829160531605421237}
   - component: {fileID: 4829160531605421236}
+  - component: {fileID: 1682849298}
   m_Layer: 9
   m_Name: GroundTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4829160531605421239
 Transform:
@@ -95,3 +96,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1682849298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829160531605421238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf404aa8c045024d9dc4e934dca8e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionType: 0
