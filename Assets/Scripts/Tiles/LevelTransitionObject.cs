@@ -17,6 +17,10 @@ public class LevelTransitionObject : MonoBehaviour {
     public IEnumerator AnimateLevelStart(float startPosY, float duration, AnimationCurve curve) {
         yield return Animate(startPosY, initialPositionY, duration, curve);
     }
+        
+    public IEnumerator AnimateLevelEnd(float endPosY, float duration, AnimationCurve curve) {
+        yield return Animate(initialPositionY, endPosY, duration, curve);
+    }
     
     private IEnumerator Animate(float startHeight, float endHeight, float duration, AnimationCurve curve) {
         float timer = 0.0f;

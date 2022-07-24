@@ -9,7 +9,6 @@ public class LevelManager : Singleton<LevelManager> {
     [Space, Header("Scene Transitions")]
     public Vector2 transitionSlideDirection;
     public float transitionSlideSpeed;
-    public float transitionSlideOffset;  // TODO: Consider making this automatic by finding the furthest object in the slide direction.
     public float transitionTileEffectDuration;
 
     [Space, Header("Scene Transitions (Raise)")]
@@ -19,13 +18,19 @@ public class LevelManager : Singleton<LevelManager> {
     [Space, Header("Scene Transitions (Fall)")]
     public float transitionDropStartHeight;
     public AnimationCurve transitionDropCurve;
+    
+    [Space, Header("Scene Transitions (Level Exit)")]
+    public AnimationCurve transitionLevelExitCurve;
 
     private List<LevelTransitionObject> levelRaiseObjects;
     private List<LevelTransitionObject> levelDropObjects;
+    private float transitionSlideOffset;
 
     public delegate void TransitionCallback();
     public event TransitionCallback onTransitionBegin;
     public event TransitionCallback onTransitionEnd;
+
+    private bool loadingNextLevel = false;
 
     public enum LEVEL_TRANSITION_TYPE {
         RAISE,
@@ -35,6 +40,11 @@ public class LevelManager : Singleton<LevelManager> {
     private void Start() {
         levelRaiseObjects = GetLevelTransitionObjects(LEVEL_TRANSITION_TYPE.RAISE);
         levelDropObjects = GetLevelTransitionObjects(LEVEL_TRANSITION_TYPE.DROP);
+
+        // Get the slide offset based on the most distant object in the scene.
+        Vector3 furthestObjPosition = GetFurthestLevelTransitionObjectInDirection(-transitionSlideDirection);
+        float offsetSign = Mathf.Sign(Vector3.Dot(furthestObjPosition, transitionSlideDirection));
+        transitionSlideOffset = Vector3.Project(furthestObjPosition, transitionSlideDirection).magnitude * offsetSign;
 
         // TODO: Only do this when we're not starting from a restart request.
         StartCoroutine(PlayLevelStartEffects());
@@ -46,6 +56,23 @@ public class LevelManager : Singleton<LevelManager> {
 
         if (Input.GetKeyDown(KeyCode.Escape))
             ReturnToMainMenu();
+    }
+
+    private Vector3 GetFurthestLevelTransitionObjectInDirection(Vector3 direction) {
+        LevelTransitionObject[] allTransitionObjects = GameObject.FindObjectsOfType<LevelTransitionObject>();
+        Vector3 nearestPosition = Vector3.zero;
+        float nearestDot = -Mathf.Infinity;
+
+        // Using the dot product on non-normalized vectors also includes distance, so it works here.
+        foreach (LevelTransitionObject obj in allTransitionObjects) {
+            float dot = Vector3.Dot(direction, obj.transform.position);
+            if (dot > nearestDot) {
+                nearestDot = dot;
+                nearestPosition = obj.transform.position;
+            }
+        }
+
+        return nearestPosition;
     }
 
     /// <summary>
@@ -60,11 +87,20 @@ public class LevelManager : Singleton<LevelManager> {
     }
 
     public static void LoadNextLevel() {
-        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        LevelManager.instance.StartCoroutine(LevelManager.instance.LoadNextLevelCoroutine());
+    }
 
-        if (nextIndex < SceneManager.sceneCountInBuildSettings) {
+    public IEnumerator LoadNextLevelCoroutine() {
+        if (loadingNextLevel)
+            yield break;
+
+        loadingNextLevel = true;
+        yield return PlayLevelEndEffects();
+        loadingNextLevel = false;
+        
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
             SceneManager.LoadScene(nextIndex);
-        }
         else
             ReturnToMainMenu(); 
     }
@@ -83,38 +119,42 @@ public class LevelManager : Singleton<LevelManager> {
         SceneManager.LoadScene(buildIndex);
     }
 
-    private bool TransitionComplete() {
-        bool raiseComplete = !levelRaiseObjects.Any(obj => obj.isAnimating == true);
-        bool dropComplete = !levelDropObjects.Any(obj => obj.isAnimating == true);
-        return raiseComplete && dropComplete;
+    private bool TransitionComplete(List<LevelTransitionObject> transitionObjects) {
+        return !transitionObjects.Any(obj => obj.isAnimating == true);
     }
 
     /// <summary>
     /// Triggers a level transition object if the transition slider is past it's position.
     /// </summary>
     /// <returns>Whether or not the object was triggered.</returns>
-    public bool TryTriggerLevelTransitionObject(LevelTransitionObject tileObj, Vector3 transitionSlidePosition, float tileStartHeight, AnimationCurve tileCurve) {
+    public bool TryTriggerLevelTransitionObject(LevelTransitionObject tileObj, Vector3 transitionSlidePosition, float finalTileHeight, AnimationCurve tileCurve, bool start=true) {
         Vector3 slideDirection = new Vector3(transitionSlideDirection.normalized.x, 0.0f, transitionSlideDirection.normalized.y);
         Vector3 fromSlidePosToTile = new Vector3(tileObj.transform.position.x, 0.0f, tileObj.transform.position.z) - transitionSlidePosition;
 
         // If the slide position is past the object position and it's not already transitioning, trigger it.
         if (Vector3.Dot(slideDirection, fromSlidePosToTile) <= 0.0f && !tileObj.hasTriggered) {
-            StartCoroutine(tileObj.AnimateLevelStart(
-                tileStartHeight,
-                transitionTileEffectDuration,
-                tileCurve
-            ));
+            if (start) {
+                StartCoroutine(tileObj.AnimateLevelStart(
+                    finalTileHeight,
+                    transitionTileEffectDuration,
+                    tileCurve
+                ));
+            } else {
+                StartCoroutine(tileObj.AnimateLevelEnd(
+                    finalTileHeight,
+                    transitionTileEffectDuration,
+                    tileCurve
+                ));
+            }
             return true;
         }
         return false;
     }
 
+    // TODO: Clean this up. I wrote it when I was so, so tired.
     public IEnumerator PlayLevelStartEffects() {
         Vector3 slideDirection = new Vector3(transitionSlideDirection.normalized.x, 0.0f, transitionSlideDirection.normalized.y);
         Vector3 slidePosition = slideDirection * transitionSlideOffset;
-
-        // TODO: Fix the potential bug where one set of tiles completes before the next ones and `TransitionComplete` resolves to true.
-        //       Fix for this is probably to control the transition state from here, but then that messes with the animate trigger.
 
         List<LevelTransitionObject> objectsToTransition = new List<LevelTransitionObject>();
         objectsToTransition.AddRange(levelRaiseObjects);
@@ -138,11 +178,11 @@ public class LevelManager : Singleton<LevelManager> {
 
         while (countTriggered < numObjectsToTrigger) {
             foreach(LevelTransitionObject obj in levelRaiseObjects) {
-                if (TryTriggerLevelTransitionObject(obj, slidePosition, transitionRaiseStartHeight, transitionRaiseCurve))
+                if (TryTriggerLevelTransitionObject(obj, slidePosition, transitionRaiseStartHeight, transitionRaiseCurve, true))
                     countTriggered++;
             }
             foreach(LevelTransitionObject obj in levelDropObjects) {
-                if (TryTriggerLevelTransitionObject(obj, slidePosition, transitionDropStartHeight, transitionDropCurve))
+                if (TryTriggerLevelTransitionObject(obj, slidePosition, transitionDropStartHeight, transitionDropCurve, true))
                     countTriggered++;
             }
 
@@ -152,7 +192,45 @@ public class LevelManager : Singleton<LevelManager> {
             yield return null;
         }
 
-        while(!TransitionComplete()) {
+        while(!TransitionComplete(objectsToTransition)) {
+            // Wait for the remaining tiles to finish their transitions.
+            yield return null;
+        }
+
+        // Reset the trigger for future level transitions.
+        foreach(LevelTransitionObject obj in objectsToTransition)
+            obj.ResetTrigger();
+
+        // Fire the start transition event so listeners know we're done.
+        if (onTransitionEnd != null)
+            onTransitionEnd();
+    }
+
+    public IEnumerator PlayLevelEndEffects() {
+        Vector3 slideDirection = new Vector3(transitionSlideDirection.normalized.x, 0.0f, transitionSlideDirection.normalized.y);
+        Vector3 slidePosition = slideDirection * transitionSlideOffset;
+
+        List<LevelTransitionObject> objectsToTransition = GameObject.FindObjectsOfType<LevelTransitionObject>().ToList();
+        int numObjectsToTrigger = objectsToTransition.Count;
+        int countTriggered = 0;
+
+        // Fire the start transition event so listeners know what's up.
+        if (onTransitionBegin != null)
+            onTransitionBegin();
+
+        while (countTriggered < numObjectsToTrigger) {
+            foreach(LevelTransitionObject obj in objectsToTransition) {
+                if (TryTriggerLevelTransitionObject(obj, slidePosition, transitionRaiseStartHeight, transitionLevelExitCurve, false))
+                    countTriggered++;
+            }
+
+            Debug.DrawLine(slideDirection * transitionSlideOffset, slidePosition, Color.black);
+
+            slidePosition += slideDirection * Time.deltaTime * transitionSlideSpeed;
+            yield return null;
+        }
+
+        while(!TransitionComplete(objectsToTransition)) {
             // Wait for the remaining tiles to finish their transitions.
             yield return null;
         }

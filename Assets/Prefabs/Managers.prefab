@@ -654,7 +654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionSlideDirection: {x: 0.8, y: -0.2}
   transitionSlideSpeed: 6
-  transitionSlideOffset: -7
   transitionTileEffectDuration: 0.4
   transitionRaiseStartHeight: -25
   transitionRaiseCurve:
@@ -683,6 +682,39 @@ MonoBehaviour:
     m_RotationOrder: 4
   transitionDropStartHeight: 15
   transitionDropCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.75
+      value: 1
+      inSlope: 2
+      outSlope: -1.2807413
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.22308517
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.13563141
+      outSlope: 0.13563141
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.32408452
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  transitionLevelExitCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3

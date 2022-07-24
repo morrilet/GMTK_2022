@@ -1391,6 +1391,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[2].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[2].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808751779, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
+      propertyPath: transitionLevelExitCurve.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8243059531173263519, guid: 09c78eca98d54f24eb7d90b761bfe97b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1452,14 +1512,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant
       objectReference: {fileID: 0}
-    - target: {fileID: 850358360691277015, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4128539242573011363, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6266718112437299704, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1502,10 +1554,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6266718112437299704, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8664040275846027101, guid: 2641f914bc13c0e479895fe0efc671c8, type: 3}
-      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

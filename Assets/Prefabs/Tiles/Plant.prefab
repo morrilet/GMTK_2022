@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6266718112437299704}
   - component: {fileID: 2014655395}
+  - component: {fileID: 8430091352253089207}
   m_Layer: 8
   m_Name: Plant
   m_TagString: Untagged
@@ -45,6 +46,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.5, z: 0.5}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &8430091352253089207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850358360691277015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf404aa8c045024d9dc4e934dca8e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionType: 1
 --- !u!1001 &8430091353768585740
 PrefabInstance:
   m_ObjectHideFlags: 0
