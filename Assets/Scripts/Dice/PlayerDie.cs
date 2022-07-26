@@ -8,13 +8,13 @@ public class PlayerDie : Die {
 
     protected override void Awake() {
         base.Awake();
-
         moveDirection = Vector3.zero;
     }
 
     private void Start() {
         LevelManager.instance.onTransitionBegin += () => allowInput = false;
         LevelManager.instance.onTransitionEnd += () => allowInput = true;
+        CameraController.AddTarget(transform);
     }
 
     public Vector3 GetMoveDirection() {
