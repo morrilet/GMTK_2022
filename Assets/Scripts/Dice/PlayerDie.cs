@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerDie : Die {
     
     private float movementDeadzone = 0.01f;
-    private bool allowInput = false;
+    private bool allowInput = true;
 
     protected override void Awake() {
         base.Awake();
