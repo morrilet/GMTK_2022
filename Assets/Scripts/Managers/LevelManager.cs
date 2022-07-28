@@ -47,10 +47,10 @@ public class LevelManager : Singleton<LevelManager> {
         transitionSlideOffset = Vector3.Project(furthestObjPosition, transitionSlideDirection).magnitude * offsetSign;
 
         // TODO: Only do this when we're not starting from a restart request.
-        if (GlobalVariables.instance.useLevelTransitionEffects)
+        if (PersistentVariableStore.instance.useLevelTransitionEffects)
             StartCoroutine(PlayLevelStartEffects());
             
-        GlobalVariables.instance.useLevelTransitionEffects = true;
+        PersistentVariableStore.instance.useLevelTransitionEffects = true;
     }
 
     private void Update() {
@@ -115,7 +115,7 @@ public class LevelManager : Singleton<LevelManager> {
 
     public static void RestartLevel() {
         Scene currentScene = SceneManager.GetActiveScene();
-        GlobalVariables.instance.useLevelTransitionEffects = false;
+        PersistentVariableStore.instance.useLevelTransitionEffects = false;
         SceneManager.LoadScene(currentScene.buildIndex);
     }
 

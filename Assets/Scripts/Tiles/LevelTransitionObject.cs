@@ -30,6 +30,7 @@ public class LevelTransitionObject : MonoBehaviour {
         Vector3 startPosition = new Vector3(transform.position.x, startHeight, transform.position.z);
         Vector3 endPosition = new Vector3(transform.position.x, endHeight, transform.position.z);
 
+        AudioManager.PlayRandomGroupSound(GlobalVariables.LEVEL_TRANSITION_EFFECT_GROUP);
         transform.position = startPosition;
 
         while(timer < duration) {

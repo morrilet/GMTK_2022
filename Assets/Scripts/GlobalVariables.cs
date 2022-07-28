@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Reflection;
 
-public class GlobalVariables : Singleton<GlobalVariables>
-{
-    [HideInInspector] public bool useLevelTransitionEffects = true;
+public class GlobalVariables {
+    public const string LEVEL_TRANSITION_EFFECT_GROUP = "level_transition";
+    public const string DIE_CLACK_EFFECT_GROUP = "dice_clack";
 
-    protected override void Awake() {
-        base.Awake();
-        DontDestroyOnLoad(this.gameObject);
-    }
+    public const string MAIN_SOUNDTRACK_EFFECT = "main_track";
+    public const string LEVEL_COMPLETE_EFFECT = "level_complete";
+    public const string BUTTON_SUCCESS_EFFECT = "button_success";
+    public const string BUTTON_FAILURE_EFFECT = "button_failure";
+    public const string DOOR_CLOSE_EFFECT = "door_close";
+    public const string DOOR_OPEN_EFFECT = "door_open";
 }

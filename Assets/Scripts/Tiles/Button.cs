@@ -10,8 +10,6 @@ public class Button : MonoBehaviour, ITurnObject
     public GameObject[] triggerObjects;
 
     [Space, Header("Effects")]
-    public AK.Wwise.Event successEvent;
-    public AK.Wwise.Event failEvent;
     public Material[] valueMaterials;  // Materials for every required value.
     public Material[] valueMaterialsToggle;  // Materials for every required value of toggle button.
     public GameObject buttonObject;
@@ -67,11 +65,11 @@ public class Button : MonoBehaviour, ITurnObject
             Die hitDie = hit.collider.gameObject.GetComponent<Die>();
 
             if (requirePlayer && hitDie != WorldController.instance.player) {
-                failEvent.Post(this.gameObject);  // Play the audio cue.
+                AudioManager.PlaySound(GlobalVariables.BUTTON_FAILURE_EFFECT);  // Play the audio cue.
                 return false;
             }
             if (requireSpecificValue && hitDie.GetCurrentSide() != requiredValue) {
-                failEvent.Post(this.gameObject);  // Play the audio cue.
+                AudioManager.PlaySound(GlobalVariables.BUTTON_FAILURE_EFFECT);  // Play the audio cue.
                 return false;
             }
             return true;
@@ -122,7 +120,7 @@ public class Button : MonoBehaviour, ITurnObject
         }
 
         // Play the click effect.
-        successEvent.Post(this.gameObject);
+        AudioManager.PlaySound(GlobalVariables.BUTTON_SUCCESS_EFFECT);
     }
 
     protected virtual void extraTriggerActions() {

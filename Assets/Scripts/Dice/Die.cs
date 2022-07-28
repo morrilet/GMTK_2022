@@ -14,8 +14,7 @@ public class Die : MonoBehaviour {
     [Space, Header("Sides")]
     public SideData[] sides;
 
-    [Space, Header("Effects")]
-    public AK.Wwise.Event moveSoundEvent;
+    // [Space, Header("Effects")]
 
     [System.Serializable]
     public struct SideData {
@@ -91,6 +90,8 @@ public class Die : MonoBehaviour {
         Vector3 localPivot = GetPivotPointForDirection(direction);
         Vector3 worldPivot = localPivot;
 
+        AudioManager.PlayRandomGroupSound(GlobalVariables.DIE_CLACK_EFFECT_GROUP);
+
         while (timer < moveDuration) {
             timer += Time.deltaTime;
 
@@ -104,8 +105,6 @@ public class Die : MonoBehaviour {
             RotateAround(worldPivot, nextRotation);
             yield return null;
         }
-
-        moveSoundEvent.Post(this.gameObject);
 
         transform.position = targetPosition;
         transform.rotation = targetRotation;

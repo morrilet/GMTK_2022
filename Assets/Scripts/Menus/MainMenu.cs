@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using AK.Wwise;
+// using AK.Wwise;
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public GameObject levelSelectPanel;
     public GameObject creditsPanel;
 
-    public AK.Wwise.Event soundtrackEvent;
+    // public AK.Wwise.Event soundtrackEvent;
 
     [Space]
 
@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
     }
 
     private void Start() {
-        // soundtrackEvent.Post(this.gameObject);  // Not working :(
+        AudioManager.PlaySound(GlobalVariables.MAIN_SOUNDTRACK_EFFECT);
     }
 
     private void SaveSettings() {
@@ -74,12 +74,12 @@ public class MainMenu : MonoBehaviour
     }
 
     public void SetMusicVolume(float volume) {
-        AkSoundEngine.SetRTPCValue(MUSIC_VOLUME_RTPC_KEY, volume);
+        // AkSoundEngine.SetRTPCValue(MUSIC_VOLUME_RTPC_KEY, volume);
         SaveSettings();
     }
 
     public void SetEffectsVolume(float volume) {
-        AkSoundEngine.SetRTPCValue(EFFECTS_VOLUME_RTPC_KEY, volume);
+        // AkSoundEngine.SetRTPCValue(EFFECTS_VOLUME_RTPC_KEY, volume);
         SaveSettings();
     }
 }
