@@ -42,11 +42,20 @@ public class TurnManager : Singleton<TurnManager> {
 
         // If there's something in the queue, fire it off and tell it to fire the next in the chain afterwards.
         Action nextAction = actionQueue.Peek();
+
         currentAction = new Task(nextAction.Invoke());
-        currentAction.Finished += delegate (bool manual) { 
+        currentAction.Finished += delegate (bool manual) {
             actionQueue.Dequeue(); // Clear the action from the queue once it's finished.
             StartNextAction(); 
         };
+    }
+
+    public void LogQueue() {
+        Debug.Log("-----");
+        foreach(TurnManager.Action act in actionQueue) {
+            Debug.Log(act.Method.Name);
+        }
+        Debug.Log("-----");
     }
 
     public bool ReadyForNextTurn() {

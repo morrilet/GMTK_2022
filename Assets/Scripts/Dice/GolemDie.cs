@@ -36,4 +36,8 @@ public class GolemDie : Die, ITurnObject
     }
 
     public TurnManager.TURN_TYPE GetTurnType() { return TurnManager.TURN_TYPE.GOLEM; }
+    
+    public int GetTurnOrder() {
+        return GlobalVariables.DIE_TURN_ORDER;
+    }
 }

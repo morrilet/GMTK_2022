@@ -78,6 +78,10 @@ public class Button : MonoBehaviour, ITurnObject
     }
 
     public void QueueTurn() {
+        TurnManager.QueueAction(TryTrigger);
+    }
+
+    public IEnumerator TryTrigger() {
         // Queue the trigger objects if we've been triggered.
         if (CheckTrigger() && !triggered) {
             Trigger(true);
@@ -95,6 +99,8 @@ public class Button : MonoBehaviour, ITurnObject
             triggered = CheckTrigger();
 
         SetModel();
+
+        yield return null;
     }
 
     private void Trigger(bool isHeld) {
@@ -132,4 +138,8 @@ public class Button : MonoBehaviour, ITurnObject
     }
 
     public TurnManager.TURN_TYPE GetTurnType() { return TurnManager.TURN_TYPE.WORLD; }
+
+    public int GetTurnOrder() {
+        return GlobalVariables.BUTTON_TURN_ORDER;
+    }
 }

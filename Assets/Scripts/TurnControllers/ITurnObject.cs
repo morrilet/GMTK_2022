@@ -4,4 +4,5 @@
 public interface ITurnObject {
     public TurnManager.TURN_TYPE GetTurnType();
     public void QueueTurn();  // Queue the objects turn actions with the turn manager.
+    public int GetTurnOrder();
 }

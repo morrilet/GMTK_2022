@@ -6,7 +6,7 @@ public class TurnController<T> : Singleton<T> where T : Component {
     
     public TurnManager.TURN_TYPE turnType;
 
-    protected ITurnObject[] turnObjects;
+    public ITurnObject[] turnObjects;
     protected List<TurnManager.Action> retryActions;  // A list of actions that failed to complete and need to be re-queued next turn.
     
     protected override void Awake() {
@@ -30,6 +30,7 @@ public class TurnController<T> : Singleton<T> where T : Component {
         turnObjects = GameObject.FindObjectsOfType<MonoBehaviour>()
             .OfType<ITurnObject>()
             .Where(obj => obj.GetTurnType() == turnType)
+            .OrderBy(obj => obj.GetTurnOrder())
             .ToArray();
     }
 
@@ -43,7 +44,7 @@ public class TurnController<T> : Singleton<T> where T : Component {
         }
         retryActions.Clear();
 
-        // Queue the turn for all turn objects.
+        // Queue the turn for all turn objects based on their turn order.
         foreach(ITurnObject obj in turnObjects) {
             obj.QueueTurn();
         }

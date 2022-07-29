@@ -130,12 +130,15 @@ public class JumpPad : MonoBehaviour, ITurnObject
         Die projectileDie = projectileTransform.GetComponent<Die>();
         int landingTilesMoved = 0;
         while(landingTilesMoved < landingRollTileCount) {
-            // yield return projectileDie.ForceExternalMove(landingDirection);
             yield return BounceAndMoveDie(projectileDie, landingDirection, endPosition.y);
             landingTilesMoved += 1;
         }
 
         // Set the final position after all effects have been applied to be sure we're still on-grid and won't accumulate errors.
         projectileTransform.position = endPosition + (projectileDie.moveDistance * landingDirection * landingRollTileCount);
+    }
+    
+    public int GetTurnOrder() {
+        return GlobalVariables.JUMP_PAD_TURN_ORDER;
     }
 }
