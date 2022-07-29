@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4371060359617385866}
   - component: {fileID: 1259523312793368527}
   - component: {fileID: 2298861105881461833}
+  - component: {fileID: 1055679592}
   m_Layer: 11
   m_Name: GolemDie
   m_TagString: Untagged
@@ -111,10 +112,7 @@ MonoBehaviour:
   - value: 6
     normal: {x: 0, y: -1, z: 0}
     debugColor: {r: 0, g: 0, b: 0, a: 0}
-  moveSoundEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d58522f91713bff409eea32253482358, type: 2}
+  animator: {fileID: 1055679592}
 --- !u!114 &2298861105881461833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +126,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionType: 1
+--- !u!95 &1055679592
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6725600872927999905}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7aed421c7e45bfc408d069a8bb7c3aa8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6780574881630356679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182,7 +199,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 52aeacee3a4ad1c4ca8c551b458b128a, type: 2}
+      objectReference: {fileID: 2100000, guid: 763d44e0868ac5f4c81effef2ace5e38, type: 2}
     - target: {fileID: 919132149155446097, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}
       propertyPath: m_Name
       value: die

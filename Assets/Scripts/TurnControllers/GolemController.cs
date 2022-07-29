@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections;
 
 public class GolemController : TurnController<GolemController> {
 
@@ -8,6 +9,13 @@ public class GolemController : TurnController<GolemController> {
     protected override void Awake() {
         base.Awake();
         golems = turnObjects.Cast<GolemDie>().ToArray();
+    }
+
+    protected override void QueueActions() {
+        base.QueueActions();
+
+        // After all golems have taken their turn we re-check the sync state in order to perform any animations.
+        TurnManager.QueueAction(HandleSyncForAllDice);
     }
 
     /// <summary>
@@ -20,5 +28,29 @@ public class GolemController : TurnController<GolemController> {
             if (golem.IsSynced() && golem.isValidMoveDirection(direction))
                 return true;
         return false;
+    }
+
+    /// <summary>
+    /// Checks that any golem is synced.
+    /// </summary>
+    /// <returns></returns>
+    public bool AnyGolemIsSynced() {
+        foreach(GolemDie golem in turnObjects)
+            if (golem.IsSynced())
+                return true;
+        return false;
+    }
+
+    /// <summary>
+    /// Move the die in the current moveDirection.
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator HandleSyncForAllDice() {
+        foreach(GolemDie golem in turnObjects) {
+            golem.AnimateSync(golem.IsSynced());
+        }
+        WorldController.instance.player.AnimateSync(AnyGolemIsSynced());
+
+        yield return null;
     }
 }

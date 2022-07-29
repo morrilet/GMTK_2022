@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3302152256846438987}
   - component: {fileID: 734327083}
   - component: {fileID: 1639687684}
+  - component: {fileID: 1767925695000472573}
   m_Layer: 11
   m_Name: PlayerDie
   m_TagString: Untagged
@@ -111,10 +112,7 @@ MonoBehaviour:
   - value: 6
     normal: {x: 0, y: -1, z: 0}
     debugColor: {r: 0, g: 0, b: 0, a: 0}
-  moveSoundEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: d58522f91713bff409eea32253482358, type: 2}
+  animator: {fileID: 1767925695000472573}
 --- !u!114 &1639687684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +126,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionType: 1
+--- !u!95 &1767925695000472573
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488933138810863712}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7aed421c7e45bfc408d069a8bb7c3aa8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5869854641768156197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,15 +178,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7069834
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7072302
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -179,9 +196,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 135175ae6f233fc42a44d26fe36c9b11, type: 2}
     - target: {fileID: 919132149155446097, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}
       propertyPath: m_Name
-      value: PastelDie
+      value: die
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecf3df7a54dfb594cae54365d8d054d3, type: 3}

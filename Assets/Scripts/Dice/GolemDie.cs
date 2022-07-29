@@ -23,7 +23,8 @@ public class GolemDie : Die, ITurnObject
     /// </summary>
     /// <returns></returns>
     public bool IsSynced() {
-        return GetCurrentSide() == WorldController.instance.player.GetCurrentSide();
+        bool synced = GetCurrentSide() == WorldController.instance.player.GetCurrentSide();
+        return synced;
     }
 
     /// <summary>

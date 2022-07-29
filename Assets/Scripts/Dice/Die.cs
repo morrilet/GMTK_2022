@@ -14,7 +14,10 @@ public class Die : MonoBehaviour {
     [Space, Header("Sides")]
     public SideData[] sides;
 
-    // [Space, Header("Effects")]
+    [Space, Header("Effects")]
+    public Animator animator;
+
+    private const string SYNCED_ANIMATOR_STATE_NAME = "isSynced";
 
     [System.Serializable]
     public struct SideData {
@@ -90,6 +93,8 @@ public class Die : MonoBehaviour {
         Vector3 localPivot = GetPivotPointForDirection(direction);
         Vector3 worldPivot = localPivot;
 
+        bool hasCheckedSyncState = false;
+
         AudioManager.PlayRandomGroupSound(GlobalVariables.DIE_CLACK_EFFECT_GROUP);
 
         while (timer < moveDuration) {
@@ -145,5 +150,9 @@ public class Die : MonoBehaviour {
 
         // The move is valid if we have no lateral obstacles and there is a floor tile present at the destination.
         return lateralHit.collider == null && floorHit.collider != null;
+    }
+
+    public void AnimateSync(bool synced) {
+        animator.SetBool(SYNCED_ANIMATOR_STATE_NAME, synced);
     }
 }
