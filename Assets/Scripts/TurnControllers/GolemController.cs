@@ -11,9 +11,9 @@ public class GolemController : TurnController<GolemController> {
         golems = turnObjects.Cast<GolemDie>().ToArray();
     }
 
-    // private void Start() {
-    //     HandleSyncForAllDice();  // Animate the sync state for all dice at the start of the level.
-    // }
+    private void Start() {
+        StartCoroutine(HandleSyncForAllDice());  // Animate the sync state for all dice at the start of the level.
+    }
 
     protected override void QueueActions() {
         base.QueueActions();
