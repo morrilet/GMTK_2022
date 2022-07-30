@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PositionMode: 0
+  m_PositionMode: 1
   m_RotationMode: 0
   m_UpdateMethod: 2
   m_Targets: []
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946776710431199789}
   m_Layer: 0
-  m_Name: Placeholder
+  m_Name: Placeholder CM Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

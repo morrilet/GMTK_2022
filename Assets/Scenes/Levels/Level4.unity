@@ -1258,10 +1258,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2475146843155736186, guid: dca5578b4fc5f454987b202a668223c7, type: 3}
-      propertyPath: m_Name
-      value: Placeholder CM Target
-      objectReference: {fileID: 0}
     - target: {fileID: 4377697602749789778, guid: dca5578b4fc5f454987b202a668223c7, type: 3}
       propertyPath: m_Name
       value: Main Camera

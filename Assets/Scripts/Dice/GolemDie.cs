@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GolemDie : Die, ITurnObject
 {
+    private void Start() {
+        CameraController.AddTarget(transform);
+    }
 
     public void QueueTurn() {
-
         // If we have a move direction and it's valid, move the die.
         if (isValidMoveDirection(moveDirection)) {
             TurnManager.QueueAction(Move);
