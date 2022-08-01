@@ -98,7 +98,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 138a11dfab9428d4ca41f1d1b2fba846, type: 3}
     isEffect: 0
     loop: 1
-    volume: 1
+    volume: 0.4
     source: {fileID: 0}
   effects:
   - name: level_complete
@@ -294,6 +294,26 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: clack_11
       clip: {fileID: 8300000, guid: ce97f63ad7037044e834bc4e3877acdd, type: 3}
+      isEffect: 1
+      loop: 0
+      volume: 1
+      source: {fileID: 0}
+  - name: volume_check
+    sounds:
+    - name: door_close
+      clip: {fileID: 8300000, guid: 0d42890b67c42f9459c213c8dcfa7f4e, type: 3}
+      isEffect: 1
+      loop: 0
+      volume: 1
+      source: {fileID: 0}
+    - name: door_open
+      clip: {fileID: 8300000, guid: def19b936c6698941801d062f1f500ee, type: 3}
+      isEffect: 1
+      loop: 0
+      volume: 1
+      source: {fileID: 0}
+    - name: button_reject
+      clip: {fileID: 8300000, guid: 75dc91b8e6ba22e4f802c033227effbb, type: 3}
       isEffect: 1
       loop: 0
       volume: 1

@@ -16,8 +16,11 @@ public class Die : MonoBehaviour {
 
     [Space, Header("Effects")]
     public Animator animator;
+    public ParticleSystem dustParticles;
+    public Vector3 dustParticleOffset = new Vector3(0.0f, -0.5f, 0.0f);
 
     private const string SYNCED_ANIMATOR_STATE_NAME = "isSynced";
+    private Quaternion dustParticleRotation;
 
     [System.Serializable]
     public struct SideData {
@@ -31,6 +34,7 @@ public class Die : MonoBehaviour {
 
     protected virtual void Awake() {
         collider = GetComponent<BoxCollider>();
+        dustParticleRotation = dustParticles.transform.rotation;
     }
 
     /// <summary>
@@ -38,7 +42,8 @@ public class Die : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     protected IEnumerator Move() {
-        yield return AnimateMove(moveDirection);
+        if (isValidMoveDirection(moveDirection))
+            yield return AnimateMove(moveDirection);
         moveDirection = Vector3.zero;
     }
 
@@ -93,8 +98,6 @@ public class Die : MonoBehaviour {
         Vector3 localPivot = GetPivotPointForDirection(direction);
         Vector3 worldPivot = localPivot;
 
-        bool hasCheckedSyncState = false;
-
         AudioManager.PlayRandomGroupSound(GlobalVariables.DIE_CLACK_EFFECT_GROUP);
 
         while (timer < moveDuration) {
@@ -110,6 +113,10 @@ public class Die : MonoBehaviour {
             RotateAround(worldPivot, nextRotation);
             yield return null;
         }
+
+        dustParticles.transform.position = targetPosition + dustParticleOffset;
+        dustParticles.transform.rotation = dustParticleRotation;
+        dustParticles.Play();
 
         transform.position = targetPosition;
         transform.rotation = targetRotation;

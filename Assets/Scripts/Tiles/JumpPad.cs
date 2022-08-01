@@ -95,7 +95,7 @@ public class JumpPad : MonoBehaviour, ITurnObject
             timer += Time.deltaTime;
             yield return null;
         }
-
+        
         // Set the Y position of the target back to baseline.
         target.transform.position = new Vector3(target.transform.position.x, yBaseline, target.transform.position.z);
     }
@@ -130,12 +130,16 @@ public class JumpPad : MonoBehaviour, ITurnObject
         Die projectileDie = projectileTransform.GetComponent<Die>();
         int landingTilesMoved = 0;
         while(landingTilesMoved < landingRollTileCount) {
-            yield return BounceAndMoveDie(projectileDie, landingDirection, endPosition.y);
-            landingTilesMoved += 1;
+            if (projectileDie.isValidMoveDirection(landingDirection)) {
+                yield return BounceAndMoveDie(projectileDie, landingDirection, endPosition.y);
+                landingTilesMoved += 1;
+            } else {
+                break;
+            }
         }
 
         // Set the final position after all effects have been applied to be sure we're still on-grid and won't accumulate errors.
-        projectileTransform.position = endPosition + (projectileDie.moveDistance * landingDirection * landingRollTileCount);
+        projectileTransform.position = endPosition + (projectileDie.moveDistance * landingDirection * landingTilesMoved);
     }
     
     public int GetTurnOrder() {

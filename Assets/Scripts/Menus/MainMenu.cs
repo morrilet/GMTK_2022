@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-// using AK.Wwise;
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,15 +10,13 @@ public class MainMenu : MonoBehaviour
     public GameObject levelSelectPanel;
     public GameObject creditsPanel;
 
-    // public AK.Wwise.Event soundtrackEvent;
-
     [Space]
 
     public Slider musicSlider;
     public Slider effectsSlider;
 
-    const string MUSIC_VOLUME_RTPC_KEY = "MusicVolume";
-    const string EFFECTS_VOLUME_RTPC_KEY = "EffectsVolume";
+    const string MUSIC_VOLUME_PREFS_KEY = "MusicVolume";
+    const string EFFECTS_VOLUME_PREFS_KEY = "EffectsVolume";
 
     private void Awake() {
         SwitchToMainMenuPanel();
@@ -31,16 +28,16 @@ public class MainMenu : MonoBehaviour
     }
 
     private void SaveSettings() {
-        PlayerPrefs.SetFloat(MUSIC_VOLUME_RTPC_KEY, musicSlider.value);
-        PlayerPrefs.SetFloat(EFFECTS_VOLUME_RTPC_KEY, effectsSlider.value);
+        PlayerPrefs.SetFloat(MUSIC_VOLUME_PREFS_KEY, musicSlider.value);
+        PlayerPrefs.SetFloat(EFFECTS_VOLUME_PREFS_KEY, effectsSlider.value);
         PlayerPrefs.Save();
     }
 
     private void LoadSettings() {
-        if (PlayerPrefs.HasKey(MUSIC_VOLUME_RTPC_KEY)) 
-            musicSlider.value = PlayerPrefs.GetFloat(MUSIC_VOLUME_RTPC_KEY);
-        if (PlayerPrefs.HasKey(EFFECTS_VOLUME_RTPC_KEY))
-            effectsSlider.value = PlayerPrefs.GetFloat(EFFECTS_VOLUME_RTPC_KEY);
+        if (PlayerPrefs.HasKey(MUSIC_VOLUME_PREFS_KEY)) 
+            musicSlider.value = PlayerPrefs.GetFloat(MUSIC_VOLUME_PREFS_KEY);
+        if (PlayerPrefs.HasKey(EFFECTS_VOLUME_PREFS_KEY))
+            effectsSlider.value = PlayerPrefs.GetFloat(EFFECTS_VOLUME_PREFS_KEY);
         
         SetMusicVolume(musicSlider.value);
         SetEffectsVolume(effectsSlider.value);
@@ -74,12 +71,16 @@ public class MainMenu : MonoBehaviour
     }
 
     public void SetMusicVolume(float volume) {
-        // AkSoundEngine.SetRTPCValue(MUSIC_VOLUME_RTPC_KEY, volume);
+        AudioManager.instance.SetMusicVolume(volume);
         SaveSettings();
     }
 
     public void SetEffectsVolume(float volume) {
-        // AkSoundEngine.SetRTPCValue(EFFECTS_VOLUME_RTPC_KEY, volume);
+        AudioManager.instance.SetEffectsVolume(volume);
         SaveSettings();
+    }
+
+    public void PlayVolumeCheck() {
+        AudioManager.PlayRandomGroupSound(GlobalVariables.VOLUME_CHECK_GROUP);
     }
 }

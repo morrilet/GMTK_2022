@@ -25,6 +25,7 @@ public class Button : MonoBehaviour, ITurnObject
 
     private float triggerDistance = 0.25f;
     private bool triggered = false;
+    private bool playedRejectAudio = false;  // Track this so we don't spam the audio cue if a rejected die stays on the button.
 
     private void Awake() {
         SetMaterial();
@@ -65,14 +66,22 @@ public class Button : MonoBehaviour, ITurnObject
             Die hitDie = hit.collider.gameObject.GetComponent<Die>();
 
             if (requirePlayer && hitDie != WorldController.instance.player) {
-                AudioManager.PlaySound(GlobalVariables.BUTTON_FAILURE_EFFECT);  // Play the audio cue.
+                if (!playedRejectAudio) {
+                    AudioManager.PlaySound(GlobalVariables.BUTTON_FAILURE_EFFECT);  // Play the audio cue.
+                    playedRejectAudio = true;
+                }
                 return false;
             }
             if (requireSpecificValue && hitDie.GetCurrentSide() != requiredValue) {
-                AudioManager.PlaySound(GlobalVariables.BUTTON_FAILURE_EFFECT);  // Play the audio cue.
+                if (!playedRejectAudio) {
+                    AudioManager.PlaySound(GlobalVariables.BUTTON_FAILURE_EFFECT);  // Play the audio cue.
+                    playedRejectAudio = true;
+                }
                 return false;
             }
             return true;
+        } else{
+            playedRejectAudio = false;
         }
         return false;
     }
@@ -99,7 +108,6 @@ public class Button : MonoBehaviour, ITurnObject
             triggered = CheckTrigger();
 
         SetModel();
-
         yield return null;
     }
 

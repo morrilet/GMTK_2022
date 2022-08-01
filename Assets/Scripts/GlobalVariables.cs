@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlobalVariables {
     public const string LEVEL_TRANSITION_EFFECT_GROUP = "level_transition";
     public const string DIE_CLACK_EFFECT_GROUP = "dice_clack";
+    public const string VOLUME_CHECK_GROUP = "volume_check";
 
     public const string MAIN_SOUNDTRACK_EFFECT = "main_track";
     public const string LEVEL_COMPLETE_EFFECT = "level_complete";
