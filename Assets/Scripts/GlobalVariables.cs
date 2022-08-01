@@ -13,6 +13,9 @@ public class GlobalVariables {
     public const string BUTTON_FAILURE_EFFECT = "button_failure";
     public const string DOOR_CLOSE_EFFECT = "door_close";
     public const string DOOR_OPEN_EFFECT = "door_open";
+    public const string JUMP_PAD_EFFECT = "jump_pad_spring";
+    public const string SYNC_EFFECT = "die_sync";
+    public const string DESYNC_EFFECT = "die_desync";
 
     public const int JUMP_PAD_TURN_ORDER = 0;
     public const int DIE_TURN_ORDER = 0;

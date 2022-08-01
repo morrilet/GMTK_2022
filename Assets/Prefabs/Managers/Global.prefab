@@ -131,6 +131,24 @@ MonoBehaviour:
     loop: 0
     volume: 1
     source: {fileID: 0}
+  - name: jump_pad_spring
+    clip: {fileID: 8300000, guid: 96b62b93fc814444db5f4717929bddf3, type: 3}
+    isEffect: 1
+    loop: 0
+    volume: 1
+    source: {fileID: 0}
+  - name: die_sync
+    clip: {fileID: 8300000, guid: 10fda385eaa86524f93716783e2378e3, type: 3}
+    isEffect: 1
+    loop: 0
+    volume: 1
+    source: {fileID: 0}
+  - name: die_desync
+    clip: {fileID: 8300000, guid: 73e6d525aeeeaa847bc4c16c9bff7d34, type: 3}
+    isEffect: 1
+    loop: 0
+    volume: 1
+    source: {fileID: 0}
   effectGroups:
   - name: level_transition
     sounds:

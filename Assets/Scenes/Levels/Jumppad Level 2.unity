@@ -1200,6 +1200,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 352176019, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 352176019, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 352176019, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 352176019, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 352176019, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6052913859143157229, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
       propertyPath: m_Name
       value: JumpPad

@@ -867,10 +867,6 @@ PrefabInstance:
       propertyPath: targetTile
       value: 
       objectReference: {fileID: 1907662490}
-    - target: {fileID: 6052913859143157231, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
-      propertyPath: landingRollTileCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
 --- !u!1001 &1077073553
@@ -1719,10 +1715,6 @@ PrefabInstance:
       propertyPath: targetTile
       value: 
       objectReference: {fileID: 336580682}
-    - target: {fileID: 6052913859143157231, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
-      propertyPath: landingRollTileCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
 --- !u!1001 &1945119531

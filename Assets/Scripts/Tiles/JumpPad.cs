@@ -10,6 +10,7 @@ public class JumpPad : MonoBehaviour, ITurnObject
     [Space, Header("Jump Parameters")]
     public float travelDuration;
     public float travelMaxHeight;
+    public int travelRotations = 1;  // The number of sides to turn when we fling the die.
     public AnimationCurve travelHeightCurve;
 
     [Space, Header("Landing Parameters")]
@@ -19,6 +20,32 @@ public class JumpPad : MonoBehaviour, ITurnObject
 
     private float triggerDistance = 0.25f;
     private Transform projectileTransform;
+    private Animator animator;
+    private Vector3 travelDirection;
+
+    private const string ANIMATION_TRIGGER_NAME = "Spring";
+    private const float ANIMATION_DELAY = 0.075f;
+
+    private void Awake() {
+        animator = GetComponent<Animator>();
+        travelDirection = GetTravelDirection();
+
+        // Make sure we're pointing the right way so our animations make sense.
+        SetInitialRotation();
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Space))
+            SetInitialRotation();
+    }
+
+    private void SetInitialRotation() {
+        float angle = Vector3.Angle(Vector3.forward, travelDirection.normalized);
+        transform.rotation = Quaternion.Euler(0.0f, angle - 180.0f, 0.0f);
+
+        Debug.DrawLine(transform.position, transform.position + -travelDirection, Color.red, 5.0f);
+        Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 5.0f);
+    }
 
     public TurnManager.TURN_TYPE GetTurnType() {
         return TurnManager.TURN_TYPE.WORLD;
@@ -28,7 +55,6 @@ public class JumpPad : MonoBehaviour, ITurnObject
     private bool CheckTrigger() {
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.up, out hit, triggerDistance, triggerMask);
-        Debug.DrawRay(transform.position, Vector3.up * triggerDistance, Color.blue);
 
         if (hit.collider)
             projectileTransform = hit.collider.transform;
@@ -42,8 +68,10 @@ public class JumpPad : MonoBehaviour, ITurnObject
             TurnManager.QueueAction(Jump);
     }
 
-    private void Update() {
-        Debug.DrawRay(transform.position, GetLandingDirection(), Color.blue);
+    public Vector3 GetTravelDirection() {
+        Vector3 startPosition = new Vector3(transform.position.x, 0.0f, transform.position.z);
+        Vector3 endPosition = new Vector3(targetTile.transform.position.x, 0.0f, targetTile.transform.position.z);
+        return endPosition - startPosition;
     }
 
     /// <summary>
@@ -52,9 +80,6 @@ public class JumpPad : MonoBehaviour, ITurnObject
     /// </summary>
     /// <returns></returns>
     public Vector3 GetLandingDirection() {
-        Vector3 startPosition = new Vector3(transform.position.x, 0.0f, transform.position.z);
-        Vector3 endPosition = new Vector3(targetTile.transform.position.x, 0.0f, targetTile.transform.position.z);
-        Vector3 travelDirection = endPosition - startPosition;
         float xAmount, zAmount;
 
         xAmount = Vector3.Dot(travelDirection, Vector3.right);
@@ -104,13 +129,22 @@ public class JumpPad : MonoBehaviour, ITurnObject
         Vector3 endPosition = targetTile.position;
         Vector3 startPosition = projectileTransform.position;
         Vector3 nextPosition;
+
+        Quaternion endRotation = projectileTransform.rotation * Quaternion.AngleAxis(travelRotations * -90.0f, transform.right);
+        Quaternion startRotation = projectileTransform.rotation;
+        Quaternion nextRotation;
+
         float timer = 0.0f;
+
+        // Play the audio effect.
+        AudioManager.PlaySound(GlobalVariables.JUMP_PAD_EFFECT);
+
+        // Play the animation and wait for a point during it where it's appropriate to start moving the die.
+        animator.SetTrigger(ANIMATION_TRIGGER_NAME);
+        yield return new WaitForSeconds(ANIMATION_DELAY);
         
         // Ignore the vertical component of the target tile - we work on a single plane.
         endPosition.y = projectileTransform.position.y;
-
-        // Play the audio effect.
-        // audioEvent.Post(this.gameObject);
 
         while (timer < travelDuration) {
 
@@ -119,6 +153,10 @@ public class JumpPad : MonoBehaviour, ITurnObject
             nextPosition.y = startPosition.y + (travelHeightCurve.Evaluate(timer / travelDuration) * travelMaxHeight);
             projectileTransform.position = nextPosition;
 
+            // Handle the rotation.
+            nextRotation = Quaternion.Lerp(startRotation, endRotation, timer / travelDuration);
+            projectileTransform.rotation = nextRotation;
+
             timer += Time.deltaTime;
             yield return null;
         }
@@ -126,6 +164,7 @@ public class JumpPad : MonoBehaviour, ITurnObject
         // Set the position to the exact target position before we start moving the die. Errors will accumulate.
         projectileTransform.position = endPosition;
 
+#region Bounce movement (deprecated)
         Vector3 landingDirection = GetLandingDirection();
         Die projectileDie = projectileTransform.GetComponent<Die>();
         int landingTilesMoved = 0;
@@ -140,6 +179,7 @@ public class JumpPad : MonoBehaviour, ITurnObject
 
         // Set the final position after all effects have been applied to be sure we're still on-grid and won't accumulate errors.
         projectileTransform.position = endPosition + (projectileDie.moveDistance * landingDirection * landingTilesMoved);
+#endregion
     }
     
     public int GetTurnOrder() {

@@ -16,11 +16,13 @@ public class Die : MonoBehaviour {
 
     [Space, Header("Effects")]
     public Animator animator;
+    public ParticleSystem syncParticles;
     public ParticleSystem dustParticles;
     public Vector3 dustParticleOffset = new Vector3(0.0f, -0.5f, 0.0f);
 
     private const string SYNCED_ANIMATOR_STATE_NAME = "isSynced";
     private Quaternion dustParticleRotation;
+    private bool previousAnimateSyncState;
 
     [System.Serializable]
     public struct SideData {
@@ -160,6 +162,18 @@ public class Die : MonoBehaviour {
     }
 
     public void AnimateSync(bool synced) {
+        // Play sync effects if we just synced.
+        if (synced && !previousAnimateSyncState) {
+            syncParticles.Play();
+            AudioManager.PlaySound(GlobalVariables.SYNC_EFFECT);
+        }
+
+        // Play desync effects if we just desynced.
+        if (!synced && previousAnimateSyncState) {
+            AudioManager.PlaySound(GlobalVariables.DESYNC_EFFECT);
+        }
+
         animator.SetBool(SYNCED_ANIMATOR_STATE_NAME, synced);
+        previousAnimateSyncState = synced;
     }
 }

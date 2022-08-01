@@ -1062,14 +1062,6 @@ PrefabInstance:
       propertyPath: targetTile
       value: 
       objectReference: {fileID: 17494867}
-    - target: {fileID: 6052913859143157231, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
-      propertyPath: travelDuration
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6052913859143157231, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
-      propertyPath: landingRollTileCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
 --- !u!1001 &1394918075
@@ -1524,14 +1516,6 @@ PrefabInstance:
       propertyPath: targetTile
       value: 
       objectReference: {fileID: 247944239}
-    - target: {fileID: 6052913859143157231, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
-      propertyPath: travelDuration
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6052913859143157231, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
-      propertyPath: landingRollTileCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f350a7d0458ec43b5fc5658c3009d7, type: 3}
 --- !u!4 &2146245190 stripped
