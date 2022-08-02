@@ -35,26 +35,30 @@ public class JumpPad : MonoBehaviour, ITurnObject
     }
 
     private void SetInitialRotation() {
-        float angle = Vector3.Angle(Vector3.forward, travelDirection.normalized);
+        float angle = Vector3.SignedAngle(Vector3.forward, travelDirection.normalized, Vector3.up);
         transform.rotation = Quaternion.Euler(0.0f, angle - 180.0f, 0.0f);
-
-        Debug.DrawLine(transform.position, transform.position + -travelDirection, Color.red, 5.0f);
-        Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 5.0f);
     }
 
     public TurnManager.TURN_TYPE GetTurnType() {
         return TurnManager.TURN_TYPE.WORLD;
     }
 
-    // Same as the button objects - let's consider consolidating this into some utility class or somesuch.
     private bool CheckTrigger() {
-        RaycastHit hit;
-        Physics.Raycast(transform.position, Vector3.up, out hit, triggerDistance, triggerMask);
-
-        if (hit.collider)
-            projectileTransform = hit.collider.transform;
+        Collider collider = GetTriggerTarget(transform.position);
+        if (collider)
+            projectileTransform = collider.transform;
         else
             projectileTransform = null;
+        return collider != null;
+    }
+    
+    private bool IsLandingTileOccupied() {
+        return GetTriggerTarget(targetTile.transform.position) != null;
+    }
+
+    private Collider GetTriggerTarget(Vector3 origin) {
+        RaycastHit hit;
+        Physics.Raycast(origin, Vector3.up, out hit, triggerDistance, triggerMask);
         return hit.collider;
     }
 
@@ -93,7 +97,7 @@ public class JumpPad : MonoBehaviour, ITurnObject
     /// Bounces the target and moves it forward using the dice movement system.
     /// </summary>
     /// <param name="direction"></param>
-    /// <param name="yBaseline"></param>
+    /// /// <param name="yBaseline"></param>
     /// <returns></returns>
     private IEnumerator BounceAndMoveDie(Die target, Vector3 direction, float yBaseline) {
         float timer = 0.0f;
@@ -119,13 +123,34 @@ public class JumpPad : MonoBehaviour, ITurnObject
         // Set the Y position of the target back to baseline.
         target.transform.position = new Vector3(target.transform.position.x, yBaseline, target.transform.position.z);
     }
+
+    private Vector3 GetAirRotationAxis() {
+        float dotRight = Vector3.Dot(travelDirection.normalized, Vector3.right);
+        float dotForward = Vector3.Dot(travelDirection.normalized, Vector3.forward);
+        
+        Debug.Log($"RIGHT: {dotRight}");
+        Debug.Log($"FORWARD: {dotForward}");
+
+        if (Mathf.Abs(dotForward) > Mathf.Abs(dotRight)) {
+            return Vector3.right * -Mathf.Sign(dotForward);
+        }
+        return Vector3.forward * Mathf.Sign(dotRight);
+    }
     
     private IEnumerator Jump() {
+        if (IsLandingTileOccupied()) {
+            AudioManager.PlaySound(GlobalVariables.BUTTON_FAILURE_EFFECT);
+            yield break;
+        }
+
         Vector3 endPosition = targetTile.position;
         Vector3 startPosition = projectileTransform.position;
         Vector3 nextPosition;
 
-        Quaternion endRotation = projectileTransform.rotation * Quaternion.AngleAxis(travelRotations * -90.0f, transform.right);
+        // Get the axis along which to rotate the die in midair.
+        Vector3 rotationAxis = GetAirRotationAxis();
+
+        Quaternion endRotation = Quaternion.AngleAxis(travelRotations * -90.0f, rotationAxis) * projectileTransform.rotation;
         Quaternion startRotation = projectileTransform.rotation;
         Quaternion nextRotation;
 
@@ -159,7 +184,7 @@ public class JumpPad : MonoBehaviour, ITurnObject
         // Set the position to the exact target position before we start moving the die. Errors will accumulate.
         projectileTransform.position = endPosition;
 
-#region Bounce movement (deprecated)
+        // Bounce movement.
         Vector3 landingDirection = GetLandingDirection();
         Die projectileDie = projectileTransform.GetComponent<Die>();
         int landingTilesMoved = 0;
@@ -174,7 +199,6 @@ public class JumpPad : MonoBehaviour, ITurnObject
 
         // Set the final position after all effects have been applied to be sure we're still on-grid and won't accumulate errors.
         projectileTransform.position = endPosition + (projectileDie.moveDistance * landingDirection * landingTilesMoved);
-#endregion
     }
     
     public int GetTurnOrder() {
