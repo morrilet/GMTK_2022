@@ -45,24 +45,9 @@ public class MainMenu : MonoBehaviour
     }
 
     public void StartGame() {
-        // Switch to the main soundtrack after we finish our current loop.
-        // TODO: Remove this, probably. See below.
-        SceneManager.sceneLoaded += MainMenu.OnLoadLevel;
-
         // Assuming the second scene in the build index is the first level we're all good.
         SceneManager.LoadScene(1);
     }
-
-    // The switch between menu music and in-game music is proving challenging. Where should we run the code to switch? What if the level
-    // is completed before the first loop is finished and we can switch tracks?
-    // I think the answer is to track whether or not we're playing menu / game music in the audio manager and run the switch in the LevelManager
-    // since that doesn't exist in the menu and it'll always run `Start()` when a new level starts.
-
-    // TODO: Remove this, probably. See above.
-    public static UnityEngine.Events.UnityAction<Scene, LoadSceneMode> OnLoadLevel = (scene, mode) => {
-        AudioManager.SwitchAfterLoops(GlobalVariables.MAIN_MENU_SOUNDTRACK_EFFECT, GlobalVariables.MAIN_SOUNDTRACK_EFFECT, 1);
-        SceneManager.sceneLoaded -= MainMenu.OnLoadLevel;  // Don't switch to the main soundtrack again on level load!
-    };
     
     public void SwitchToMainMenuPanel() {
         mainMenuPanel.SetActive(true);

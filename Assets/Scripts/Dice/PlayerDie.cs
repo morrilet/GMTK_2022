@@ -78,6 +78,4 @@ public class PlayerDie : Die {
 
         return input.normalized;
     }
-
-    // TODO: ForceMove(Vector3 direction) -> Allows an external source to move the player using the AnimateMove() function. Note that this is implemented for golems already.
 }

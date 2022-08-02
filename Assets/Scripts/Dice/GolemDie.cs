@@ -17,9 +17,6 @@ public class GolemDie : Die, ITurnObject
         }
     }
 
-    // TODO: Animate sync
-    // TODO: What if the game starts with the dice synced? We won't have a world turn to sync before the player can move. Add a setup phase, maybe?
-
     /// <summary>
     /// Golem dice sync with the player when they have the same side up.
     /// </summary>

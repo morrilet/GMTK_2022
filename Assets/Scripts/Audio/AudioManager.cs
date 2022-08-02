@@ -21,7 +21,6 @@ public class AudioManager : Singleton<AudioManager>
 
     public delegate void TransitionCallback();
 
-    // TODO: Load these values from PlayerPrefs in Start().
     [HideInInspector] public float masterMusicVolume = 1.0f;
     [HideInInspector] public float masterEffectVolume = 1.0f;
 
@@ -160,6 +159,9 @@ public class AudioManager : Singleton<AudioManager>
 #endregion
 
 # region Soundtrack
+    // This is a bunch of complicated state management code for transitioning between menu music and in-game music.
+    // Ideally this would be refactored and moved somewhere less global but it is what it is with the deadline looming.
+
     public static void TryStartMenuMusic() {
         if (AudioManager.instance.isTransitioningSoundtrack) {
             AudioManager.instance.isTransitioningSoundtrack = false;
@@ -189,8 +191,6 @@ public class AudioManager : Singleton<AudioManager>
     public static void TryStartInGameMusic() {
         if (AudioManager.instance.isTransitioningSoundtrack) {
             AudioManager.instance.isTransitioningSoundtrack = false;
-            // AudioManager.instance.isPlayingInGameMusic = false;
-            // AudioManager.instance.isPlayingMenuMusic = false;
             AudioManager.instance.StopAllCoroutines();
         }
         
