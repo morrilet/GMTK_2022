@@ -46,9 +46,12 @@ public class LevelManager : Singleton<LevelManager> {
         float offsetSign = Mathf.Sign(Vector3.Dot(furthestObjPosition, transitionSlideDirection));
         transitionSlideOffset = Vector3.Project(furthestObjPosition, transitionSlideDirection).magnitude * offsetSign;
 
-        // TODO: Only do this when we're not starting from a restart request.
+        // If we're starting from a restart request don't use transition effects.
         if (PersistentVariableStore.instance.useLevelTransitionEffects)
             StartCoroutine(PlayLevelStartEffects());
+
+        // Start the in-game music, including any necessary transitions.
+        AudioManager.TryStartInGameMusic();
             
         PersistentVariableStore.instance.useLevelTransitionEffects = true;
     }
@@ -109,6 +112,13 @@ public class LevelManager : Singleton<LevelManager> {
     }
 
     public static void ReturnToMainMenu() {
+        // Switch back to the menu soundtrack.
+        AudioManager.Crossfade(
+            GlobalVariables.MAIN_SOUNDTRACK_EFFECT, 
+            GlobalVariables.MAIN_MENU_SOUNDTRACK_EFFECT, 
+            GlobalVariables.SOUNDTRACK_CROSSFADE_DURATION
+        );
+
         // We're assuming that the main menu is the first scene in the index.
         SceneManager.LoadScene(0);  
     }

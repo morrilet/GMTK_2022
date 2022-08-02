@@ -34,11 +34,6 @@ public class JumpPad : MonoBehaviour, ITurnObject
         SetInitialRotation();
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SetInitialRotation();
-    }
-
     private void SetInitialRotation() {
         float angle = Vector3.Angle(Vector3.forward, travelDirection.normalized);
         transform.rotation = Quaternion.Euler(0.0f, angle - 180.0f, 0.0f);

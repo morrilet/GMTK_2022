@@ -95,7 +95,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music:
   - name: main_track
-    clip: {fileID: 8300000, guid: 138a11dfab9428d4ca41f1d1b2fba846, type: 3}
+    clip: {fileID: 8300000, guid: bbe61d7030926a24fad7c4d59308b9a2, type: 3}
+    isEffect: 0
+    loop: 1
+    volume: 0.4
+    source: {fileID: 0}
+  - name: menu_track
+    clip: {fileID: 8300000, guid: c0707612496e1464583994c2ee739c5b, type: 3}
     isEffect: 0
     loop: 1
     volume: 0.4
@@ -132,7 +138,7 @@ MonoBehaviour:
     volume: 1
     source: {fileID: 0}
   - name: jump_pad_spring
-    clip: {fileID: 8300000, guid: 96b62b93fc814444db5f4717929bddf3, type: 3}
+    clip: {fileID: 8300000, guid: 654485b1b72595340ace4ea7dd24eff0, type: 3}
     isEffect: 1
     loop: 0
     volume: 1
@@ -147,7 +153,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 73e6d525aeeeaa847bc4c16c9bff7d34, type: 3}
     isEffect: 1
     loop: 0
-    volume: 1
+    volume: 0
     source: {fileID: 0}
   effectGroups:
   - name: level_transition
