@@ -38,7 +38,8 @@ public class PlayerDie : Die {
             // TODO: Consider moving this into a `TryMove(dir)` function so that we can use it in `ForceExternalMove()`
             // If our desired direction is blocked, don't move that way.
             if (!isValidMoveDirection(moveDirection)) {
-                // TODO: Wiggle!
+                if (moveDirection != Vector3.zero)
+                    StartCoroutine(AnimateWiggle(moveDirection));
                 moveDirection = Vector3.zero;
             }
             

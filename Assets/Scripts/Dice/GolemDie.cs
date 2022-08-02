@@ -13,6 +13,8 @@ public class GolemDie : Die, ITurnObject
         }
         // If the movement is invalid clear the direction so we don't try to use it next turn. 
         else {
+            if (moveDirection != Vector3.zero)
+                StartCoroutine(AnimateWiggle(moveDirection));
             moveDirection = Vector3.zero;
         }
     }

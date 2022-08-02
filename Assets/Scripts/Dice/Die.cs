@@ -6,8 +6,10 @@ public class Die : MonoBehaviour {
     [Space, Header("Movement Parameters")]
     public float moveDistance = 1.0f;
     public float moveDuration = 0.25f;
+    public float wiggleDuration = 0.15f;
     public float rotationAmount = 90.0f;
     public AnimationCurve moveSpeedCurve;
+    public AnimationCurve wiggleCurve;
     public LayerMask obstacleMask;
     public LayerMask floorMask;
 
@@ -23,6 +25,7 @@ public class Die : MonoBehaviour {
     private const string SYNCED_ANIMATOR_STATE_NAME = "isSynced";
     private Quaternion dustParticleRotation;
     private bool previousAnimateSyncState;
+    private bool isWiggling;
 
     [System.Serializable]
     public struct SideData {
@@ -58,8 +61,7 @@ public class Die : MonoBehaviour {
         if (isValidMoveDirection(direction))
             yield return AnimateMove(direction);
         else
-            // TODO: Wiggle!
-            yield return null;
+            yield return AnimateWiggle(direction);
     }
 
     /// <summary>
@@ -88,6 +90,10 @@ public class Die : MonoBehaviour {
 
     protected IEnumerator AnimateMove(Vector3 direction) {
         float timer = 0;
+
+        while (isWiggling) {
+            yield return null;
+        }
 
         // We want to swap the X / Z components for rotation axis. If we're moving along the X axis,
         // for example, we want to rotate along the Z axis to make it look correct.
@@ -122,6 +128,45 @@ public class Die : MonoBehaviour {
 
         transform.position = targetPosition;
         transform.rotation = targetRotation;
+    }
+
+    protected IEnumerator AnimateWiggle(Vector3 direction) {
+        if (isWiggling)
+            yield break;
+        isWiggling = true;
+
+        float timer = 0;
+        float prevTimer = 0;
+
+        // We want to swap the X / Z components for rotation axis. If we're moving along the X axis,
+        // for example, we want to rotate along the Z axis to make it look correct.
+        Vector3 rotationAxis = new Vector3(direction.z, 0.0f, -direction.x);
+
+        Vector3 startPosition = transform.position;
+        Vector3 startRotation = transform.rotation.eulerAngles;
+
+        Vector3 localPivot = GetPivotPointForDirection(direction);
+        Vector3 worldPivot = localPivot;
+
+        while (timer < wiggleDuration) {
+            prevTimer = timer;
+
+            float curveStep = wiggleCurve.Evaluate(timer / wiggleDuration);// - wiggleCurve.Evaluate(prevTimer / wiggleDuration);
+            float angleStep = (rotationAmount * curveStep * Time.deltaTime) / wiggleDuration;
+            Quaternion nextRotation = Quaternion.AngleAxis(angleStep, rotationAxis);
+            worldPivot = startPosition + localPivot;
+
+            // Keep the world pivot locked to the bottom of the die even if it's in the air.
+            worldPivot.y = transform.position.y - collider.bounds.extents.y;
+
+            RotateAround(worldPivot, nextRotation);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = startPosition;
+        transform.rotation = Quaternion.Euler(startRotation);
+        isWiggling = false;
     }
 
     // Get the number on the side of the die that's currently facing upward.

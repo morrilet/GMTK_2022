@@ -64,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 1
   moveDuration: 0.25
+  wiggleDuration: 0.2
   rotationAmount: 90
   moveSpeedCurve:
     serializedVersion: 2
@@ -85,6 +86,39 @@ MonoBehaviour:
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  wiggleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.580329
+      outSlope: 4.580329
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.095686756
+    - serializedVersion: 3
+      time: 0.5
+      value: 0
+      inSlope: -3.297767
+      outSlope: -3.297767
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1010859
+      outWeight: 0.07658148
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 4.4754314
+      outSlope: 4.4754314
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1721927
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

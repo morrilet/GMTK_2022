@@ -158,7 +158,7 @@ public class AudioManager : Singleton<AudioManager>
     }
 #endregion
 
-# region Soundtrack
+#region Soundtrack
     // This is a bunch of complicated state management code for transitioning between menu music and in-game music.
     // Ideally this would be refactored and moved somewhere less global but it is what it is with the deadline looming.
 
@@ -213,7 +213,7 @@ public class AudioManager : Singleton<AudioManager>
             AudioManager.instance.isPlayingMenuMusic = false;
         }
     }
-# endregion
+#endregion
 
     // public void PlayRandomEffect() {
     //     Sound[] soundGroup = Array.FindAll(sounds, sound => sound.isEffect == true);
